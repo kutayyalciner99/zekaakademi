@@ -17,7 +17,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
+//test
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -645,61 +645,105 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         screenModeFullScreen
                             ? Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Image.asset('assets/kid.png',scale: 1.5,),
+                                  Image.asset(
+                                    'assets/kid.png',
+                                    scale: 1.5,
+                                  ),
                                   const SizedBox(
-                                      height: 350, width: 800, child: Card(child: Padding(
-                                        padding: EdgeInsets.all(20.0),
-                                        child: Column(
-                                          children: [
-                                            Row(children: [
-                                              Icon(Icons.phone,
-                                              
-                                          color: Colors.blue,
+                                      height: 350,
+                                      width: 800,
+                                      child: Card(
+                                        child: Padding(
+                                          padding: EdgeInsets.all(20.0),
+                                          child: Column(
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Icon(
+                                                    Icons.phone,
+                                                    color: Colors.blue,
+                                                  ),
+                                                  Text(
+                                                    "  Bize Ulaşın",
+                                                    style: TextStyle(
+                                                        color: Colors.blue,
+                                                        fontSize: 20,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  )
+                                                ],
                                               ),
-                                              Text("  Bize Ulaşın",
-                                               style: TextStyle(
-                                          color: Colors.blue,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold),
-                                              )
-                                            ],),
-                                            Padding(
-                                              padding: EdgeInsets.only(top:20),
-                                              child: Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                                children: [
-                                                SizedBox(
-                                                  height: 50,
-                                                  width: 200,
-                                                  child: TextField(decoration: InputDecoration(border: OutlineInputBorder(),hintText: "Ad Soyad"),)),
-                                                  SizedBox(
-                                                  height: 50,
-                                                  width: 200,
-                                                  child: TextField(decoration: InputDecoration(border: OutlineInputBorder(),hintText: "E-Posta Adresi"),)),
-                                                  SizedBox(
-                                                  height: 50,
-                                                  width: 200,
-                                                  child: TextField(decoration: InputDecoration(border: OutlineInputBorder(),hintText: "Telefon Numarası"),))
-                                              ],),
-                                            ),
-                                             Padding(
-                                              padding: EdgeInsets.only(top:20),
-                                              child: Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                                children: [
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding: EdgeInsets.symmetric( horizontal:  26.0),
-                                                    child: TextField(decoration: InputDecoration(border: OutlineInputBorder(),hintText: "Ad Soyad"),),
-                                                  )),
-                           
-                                              ],),
-                                            ),
-                                          ],
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(top: 20),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    SizedBox(
+                                                        height: 50,
+                                                        width: 200,
+                                                        child: TextField(
+                                                          decoration: InputDecoration(
+                                                              border:
+                                                                  OutlineInputBorder(),
+                                                              hintText:
+                                                                  "Ad Soyad"),
+                                                        )),
+                                                    SizedBox(
+                                                        height: 50,
+                                                        width: 200,
+                                                        child: TextField(
+                                                          decoration: InputDecoration(
+                                                              border:
+                                                                  OutlineInputBorder(),
+                                                              hintText:
+                                                                  "E-Posta Adresi"),
+                                                        )),
+                                                    SizedBox(
+                                                        height: 50,
+                                                        width: 200,
+                                                        child: TextField(
+                                                          decoration: InputDecoration(
+                                                              border:
+                                                                  OutlineInputBorder(),
+                                                              hintText:
+                                                                  "Telefon Numarası"),
+                                                        ))
+                                                  ],
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(top: 20),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    Expanded(
+                                                        child: Padding(
+                                                      padding:
+                                                          EdgeInsets.symmetric(
+                                                              horizontal: 26.0),
+                                                      child: TextField(
+                                                        decoration: InputDecoration(
+                                                            border:
+                                                                OutlineInputBorder(),
+                                                            hintText:
+                                                                "Ad Soyad"),
+                                                      ),
+                                                    )),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                      ),))
+                                      ))
                                 ],
                               )
                             : Container(),
