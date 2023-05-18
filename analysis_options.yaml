@@ -1,0 +1,14 @@
+# This file configures the Dart analyzer.
+# For more information, see: https://dart.dev/guides/language/analysis-options
+
+# Lint rules to enable.
+linter:
+  rules:
+    - prefer_const_constructors
+    - prefer_single_quotes
+    - always_specify_types
+
+# Enable support for the latest stable Dart language version.
+analyzer:
+  enable-experiment:
+    - non-nullable
