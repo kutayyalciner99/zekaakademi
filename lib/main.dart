@@ -1,5 +1,6 @@
+// ignore_for_file: always_specify_types
+
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -8,6 +9,8 @@ import 'package:zekaakademi/components/CustomCard.dart';
 import 'package:zekaakademi/components/SocialIcon.dart';
 import 'package:zekaakademi/components/carousel_list.dart';
 import 'package:zekaakademi/components/flags.dart';
+
+import 'components/carousel_list2.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,11 +52,14 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final CarouselController _carouselController = CarouselController();
+  final CarouselController _carouselController2 = CarouselController();
   int _currentCarouselIndex = 0;
+  int _currentCarouselIndex2 = 0;
 
   @override
   Widget build(BuildContext context) {
     bool screenModeFullScreen = MediaQuery.of(context).size.width > 768;
+    bool screenModeModerate = MediaQuery.of(context).size.width > 1100;
 
     return Stack(
       children: [
@@ -385,19 +391,22 @@ class _MyHomePageState extends State<MyHomePage> {
                               const Spacer(
                                 flex: 2,
                               ),
-                              ElevatedButton(
-                                onPressed: () async {
-                                  await launchUrl(Uri.parse(
-                                      'https://api.whatsapp.com/send/?phone=905536273410&text=Merhabalar.&type=phone_number&app_absent=0'));
-                                },
-                                child: const Padding(
-                                  padding: EdgeInsets.all(14.0),
-                                  child: Text(
-                                    'Ücretsiz Değerlendirme Seansı Oluştur',
-                                    style: TextStyle(fontSize: 18),
-                                  ),
-                                ),
-                              ),
+                              screenModeModerate
+                                  ? ElevatedButton(
+                                      onPressed: () async {
+                                        await launchUrl(Uri.parse(
+                                            'https://api.whatsapp.com/send/?phone=905536273410&text=Merhabalar.&type=phone_number&app_absent=0'));
+                                      },
+                                      child: const Padding(
+                                        padding: EdgeInsets.all(14.0),
+                                        child: Text(
+                                          'Ücretsiz Değerlendirme\n Seansı Oluştur',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: 18),
+                                        ),
+                                      ),
+                                    )
+                                  : const SizedBox.shrink(),
                               const Spacer(
                                 flex: 2,
                               ),
@@ -602,7 +611,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         )),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Column(
                           children: [
@@ -625,7 +634,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     child: Text(
                                       'Hemen Bizi Arayın',
                                       style: TextStyle(
-                                          fontFamily: 'Poppins', fontSize: 22),
+                                        fontFamily: 'Poppins',
+                                        fontSize: 22,
+                                      ),
                                     ),
                                   ),
                                   Padding(
@@ -641,41 +652,119 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ],
                               ),
                             ),
+                            const SizedBox(
+                              height: 40,
+                            ),
+                            Stack(
+                              children: [
+                                Opacity(
+                                  opacity: 0.7,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Image.asset(
+                                      'assets/textbackground.png',
+                                      scale: 1.5,
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  top: 80,
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        width: 410,
+                                        color: Colors.black.withOpacity(0.3),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            const Icon(Icons.phone,
+                                                color: Colors.white),
+                                            const SizedBox(
+                                              width: 25,
+                                            ),
+                                            Column(
+                                              children: [
+                                                const Text(
+                                                  'Telefon Numarası',
+                                                  style: TextStyle(
+                                                      fontSize: 20,
+                                                      fontFamily: 'Poppins',
+                                                      color: Colors.white),
+                                                ),
+                                                TextButton(
+                                                    onPressed: () {
+                                                      launch(
+                                                          'tel:+905536273410');
+                                                    },
+                                                    child: const Text(
+                                                      '0 553 627 34 10',
+                                                      style: TextStyle(
+                                                          fontSize: 20,
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ))
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 80,
+                                      ),
+                                      Container(
+                                        color: Colors.black.withOpacity(0.3),
+                                        padding: const EdgeInsets.all(8.0),
+                                        width: 410,
+                                        child: const Text(
+                                          'Zeka akademide ücretsiz değerlendirme seanslarımıza katılarak çocuğunuzun durumu hakkında detaylı bilgi edinebilirsiniz.',
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              color: Colors.white),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            )
                           ],
                         ),
-                        screenModeFullScreen
+                        screenModeModerate
                             ? Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Image.asset(
                                     'assets/kid.png',
-                                    scale: 1.5,
+                                    scale: 1,
                                   ),
-                                  const SizedBox(
-                                      height: 350,
-                                      width: 800,
+                                  SizedBox(
+                                      height: 400,
+                                      width: 900,
                                       child: Card(
                                         child: Padding(
-                                          padding: EdgeInsets.all(20.0),
+                                          padding: const EdgeInsets.all(20.0),
                                           child: Column(
                                             children: [
-                                              Row(
+                                              const Row(
                                                 children: [
                                                   Icon(
                                                     Icons.phone,
                                                     color: Colors.blue,
                                                   ),
                                                   Text(
-                                                    "  Bize Ulaşın",
+                                                    '  Bize Ulaşın',
                                                     style: TextStyle(
-                                                        color: Colors.blue,
-                                                        fontSize: 20,
-                                                        fontWeight:
-                                                            FontWeight.bold),
+                                                      color: Colors.blue,
+                                                      fontSize: 24,
+                                                      fontFamily: 'Poppins',
+                                                    ),
                                                   )
                                                 ],
                                               ),
-                                              Padding(
+                                              const Padding(
                                                 padding:
                                                     EdgeInsets.only(top: 20),
                                                 child: Row(
@@ -685,38 +774,38 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   children: [
                                                     SizedBox(
                                                         height: 50,
-                                                        width: 200,
+                                                        width: 230,
                                                         child: TextField(
                                                           decoration: InputDecoration(
                                                               border:
                                                                   OutlineInputBorder(),
                                                               hintText:
-                                                                  "Ad Soyad"),
+                                                                  'Ad Soyad'),
                                                         )),
                                                     SizedBox(
                                                         height: 50,
-                                                        width: 200,
+                                                        width: 230,
                                                         child: TextField(
                                                           decoration: InputDecoration(
                                                               border:
                                                                   OutlineInputBorder(),
                                                               hintText:
-                                                                  "E-Posta Adresi"),
+                                                                  'E-Posta Adresi'),
                                                         )),
                                                     SizedBox(
                                                         height: 50,
-                                                        width: 200,
+                                                        width: 230,
                                                         child: TextField(
                                                           decoration: InputDecoration(
                                                               border:
                                                                   OutlineInputBorder(),
                                                               hintText:
-                                                                  "Telefon Numarası"),
+                                                                  'Telefon Numarası'),
                                                         ))
                                                   ],
                                                 ),
                                               ),
-                                              Padding(
+                                              const Padding(
                                                 padding:
                                                     EdgeInsets.only(top: 20),
                                                 child: Row(
@@ -734,19 +823,59 @@ class _MyHomePageState extends State<MyHomePage> {
                                                             border:
                                                                 OutlineInputBorder(),
                                                             hintText:
-                                                                "Ad Soyad"),
+                                                                'Mesaj Başlığı'),
                                                       ),
                                                     )),
                                                   ],
                                                 ),
                                               ),
+                                              const Padding(
+                                                padding:
+                                                    EdgeInsets.only(top: 20),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    Expanded(
+                                                        child: Padding(
+                                                      padding:
+                                                          EdgeInsets.symmetric(
+                                                              horizontal: 26.0),
+                                                      child: TextField(
+                                                        decoration: InputDecoration(
+                                                            border:
+                                                                OutlineInputBorder(),
+                                                            hintText:
+                                                                'Mesaj İçeriği'),
+                                                      ),
+                                                    )),
+                                                  ],
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        vertical: 20.0,
+                                                        horizontal: 20),
+                                                child: SizedBox(
+                                                    height: 40,
+                                                    width: 800,
+                                                    child: ElevatedButton(
+                                                        onPressed: () {},
+                                                        child: const Text(
+                                                          'Mesaj Gönder',
+                                                          style: TextStyle(
+                                                              fontSize: 24),
+                                                        ))),
+                                              )
                                             ],
                                           ),
                                         ),
                                       ))
                                 ],
                               )
-                            : Container(),
+                            : const SizedBox.shrink(),
                       ],
                     ),
                     const SizedBox(
@@ -754,6 +883,158 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ],
                 ),
+                Padding(
+                  padding:
+                      EdgeInsets.only(left: screenModeFullScreen ? 100.0 : 0),
+                  child: const Row(
+                    children: [
+                      Text(
+                        'Neden Zeka Akademi?',
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Poppins',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(
+                        left: screenModeFullScreen ? 100.0 : 0, top: 20),
+                    child: Row(
+                      children: [
+                        Wrap(children: [
+                          Text(
+                            screenModeFullScreen
+                                ? 'zeka akademi de çocuğunuz için gerekli olan tüm eğitim ve destek programları bilimsel olarak kanıtlanmış\n yöntemlerle alanında uzman özel eğitimci kadromuz tarafından sağlanmaktadır.'
+                                : 'zeka akademi de çocuğunuz için gerekli olan\ntüm eğitim ve destek programları\nbilimsel olarak kanıtlanmış yöntemlerle\nalanında uzman özel eğitimci kadromuz\ntarafından sağlanmaktadır.',
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                        ]),
+                      ],
+                    )),
+                const SizedBox(
+                  height: 20,
+                ),
+
+                Padding(
+                  padding:
+                      EdgeInsets.only(left: screenModeFullScreen ? 100.0 : 0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Expanded(
+                            child: customRow('Uzman Kadro'),
+                          ),
+                          Expanded(
+                            child: customRow('Nitelik'),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Expanded(
+                            child: customRow('Bilimsellik'),
+                          ),
+                          Expanded(
+                            child: customRow('Kaliteli Hizmet'),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Expanded(
+                            child: customRow('Etik'),
+                          ),
+                          Expanded(
+                            child: customRow(screenModeFullScreen
+                                ? 'Tam Donanımlı Eğitim Sınıflarımız'
+                                : 'Tam Donanımlı\nEğitim Sınıflarımız'),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      customRow2('10 Yıllık', 'Özel Eğitim Deneyimi')
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+
+                Container(
+                  color: Colors.lightBlue.withOpacity(0.09),
+                  height: 700,
+                  width: MediaQuery.of(context).size.width,
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              'Sizden Gelenler.',
+                              style: TextStyle(
+                                  fontSize: 30, fontWeight: FontWeight.bold),
+                            ),
+                            Container(
+                              height: 70,
+                              width: 200,
+                              child: ElevatedButton(
+                                child: const Text(
+                                  'Hakkımızda',
+                                  style: TextStyle(fontSize: 22),
+                                ),
+                                onPressed: () {},
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      CarouselSlider(
+                        carouselController: _carouselController2,
+                        items: carouselItems2,
+                        options: CarouselOptions(
+                          viewportFraction: 1,
+                          height: 500,
+                          autoPlay: true,
+                          autoPlayCurve: Curves.ease,
+                          enableInfiniteScroll: true,
+                          aspectRatio: 1,
+                          scrollPhysics: const BouncingScrollPhysics(),
+                          animateToClosest: true,
+                          onPageChanged:
+                              (int index, CarouselPageChangedReason reason) {
+                            setState(() {
+                              _currentCarouselIndex = index;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
           ),
@@ -764,6 +1045,54 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: EdgeInsets.all(8.0),
               child: Flags(),
             )),
+      ],
+    );
+  }
+
+  Row customRow2(String input, String input2) {
+    return Row(
+      children: [
+        Container(
+          height: 50,
+          width: 50,
+          decoration:
+              const BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        Column(
+          children: [
+            Text(
+              input,
+              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              input2,
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black.withOpacity(0.6),
+              ),
+            ),
+          ],
+        )
+      ],
+    );
+  }
+
+  Row customRow(String input) {
+    return Row(
+      children: [
+        Container(
+          height: 20,
+          width: 20,
+          decoration:
+              const BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        Text(input)
       ],
     );
   }
