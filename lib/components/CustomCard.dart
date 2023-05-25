@@ -28,13 +28,13 @@ CustomCard(String title, String subText, String assetImageAddress) {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.all(24.0),
               child: Text(
                 subText,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontFamily: 'Poppins',
-                ),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: 'Poppins',
+                    color: Colors.black.withOpacity(0.7)),
               ),
             ),
           ],

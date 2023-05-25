@@ -6,9 +6,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 import 'package:zekaakademi/components/CustomCard.dart';
+import 'package:zekaakademi/components/CustomCard2.dart';
 import 'package:zekaakademi/components/SocialIcon.dart';
 import 'package:zekaakademi/components/carousel_list.dart';
 import 'package:zekaakademi/components/flags.dart';
+import 'package:zekaakademi/components/footer.dart';
 
 import 'components/carousel_list2.dart';
 
@@ -987,27 +989,51 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              'Sizden Gelenler.',
-                              style: TextStyle(
-                                  fontSize: 30, fontWeight: FontWeight.bold),
-                            ),
-                            Container(
-                              height: 70,
-                              width: 200,
-                              child: ElevatedButton(
-                                child: const Text(
-                                  'Hakkımızda',
-                                  style: TextStyle(fontSize: 22),
-                                ),
-                                onPressed: () {},
+                        child: screenModeFullScreen
+                            ? Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Text(
+                                    'Sizden Gelenler.',
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Container(
+                                    height: 70,
+                                    width: 200,
+                                    child: ElevatedButton(
+                                      child: const Text(
+                                        'Hakkımızda',
+                                        style: TextStyle(fontSize: 22),
+                                      ),
+                                      onPressed: () {},
+                                    ),
+                                  )
+                                ],
+                              )
+                            : Column(
+                                children: [
+                                  const Text(
+                                    'Sizden Gelenler.',
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Container(
+                                    height: 70,
+                                    width: 200,
+                                    child: ElevatedButton(
+                                      child: const Text(
+                                        'Hakkımızda',
+                                        style: TextStyle(fontSize: 22),
+                                      ),
+                                      onPressed: () {},
+                                    ),
+                                  )
+                                ],
                               ),
-                            )
-                          ],
-                        ),
                       ),
                       const SizedBox(
                         height: 40,
@@ -1018,7 +1044,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         options: CarouselOptions(
                           viewportFraction: 1,
                           height: 500,
-                          autoPlay: true,
+                          autoPlay: false,
                           autoPlayCurve: Curves.ease,
                           enableInfiniteScroll: true,
                           aspectRatio: 1,
@@ -1027,14 +1053,104 @@ class _MyHomePageState extends State<MyHomePage> {
                           onPageChanged:
                               (int index, CarouselPageChangedReason reason) {
                             setState(() {
-                              _currentCarouselIndex = index;
+                              _currentCarouselIndex2 = index;
                             });
                           },
                         ),
                       ),
                     ],
                   ),
-                )
+                ),
+
+                Column(children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  screenModeFullScreen
+                      ? Padding(
+                          padding:
+                              const EdgeInsets.symmetric(horizontal: 150.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(
+                                'En Son Haberler ve\nYazılarımıza Göz Atın',
+                                style: TextStyle(
+                                    fontSize: 30, fontWeight: FontWeight.bold),
+                              ),
+                              Container(
+                                height: 70,
+                                width: 200,
+                                child: ElevatedButton(
+                                  child: const Center(
+                                    child: Text(
+                                      'Tümünü Görüntüle',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(fontSize: 22),
+                                    ),
+                                  ),
+                                  onPressed: () {},
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      : Column(
+                          children: [
+                            const Text(
+                              'En Son Haberler ve\nYazılarımıza Göz Atın',
+                              style: TextStyle(
+                                  fontSize: 30, fontWeight: FontWeight.bold),
+                            ),
+                            Container(
+                              height: 70,
+                              width: 200,
+                              child: ElevatedButton(
+                                child: const Center(
+                                  child: Text(
+                                    'Tümünü Görüntüle',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(fontSize: 22),
+                                  ),
+                                ),
+                                onPressed: () {},
+                              ),
+                            )
+                          ],
+                        ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Wrap(
+                        spacing: 10,
+                        runSpacing: 10,
+                        children: [
+                          CustomCard2(
+                              'OTİZM SPEKTURUM BOZUKLUĞU OLAN ÇOCUĞUMLA NASIL OYUN OYNAMALIYIM',
+                              'Blog yazımızın tamamın okumak için aşağıdaki butona tıklayınız.',
+                              'assets/bottom_card4.png'),
+                          CustomCard2(
+                              'UYARAN EKSİKİĞİ NEDİR',
+                              'Blog yazımızın tamamın okumak için aşağıdaki butona tıklayınız.',
+                              'assets/bottom_card3.jpg'),
+                          CustomCard2(
+                              'Zİhin Kuramı Nedir ?',
+                              'Blog yazımızın tamamın okumak için aşağıdaki butona tıklayınız.',
+                              'assets/bottom_card1.jpg'),
+                          CustomCard2(
+                              'Floortime Nedir ?',
+                              'Blog yazımızın tamamın okumak için aşağıdaki butona tıklayınız.',
+                              'assets/bottom_card2.jpg'),
+                          CustomCard2(
+                              'Okul Öncesi Dönem Disleksi Belirtileri Nelerdir ?',
+                              'Blog yazımızın tamamın okumak için aşağıdaki butona tıklayınız.',
+                              'assets/bottom_card5.jpg'),
+                        ],
+                      )),
+                ]),
+                Footer(context)
               ],
             ),
           ),
