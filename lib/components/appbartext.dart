@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class appbarText extends StatelessWidget {
+class AppbarText extends StatelessWidget {
   String text;
   IconData icon;
-  appbarText({
+  AppbarText({
     Key? key,
     required this.text,
     required this.icon,
@@ -12,7 +12,7 @@ class appbarText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [
+      children: <Widget>[
         Icon(
           icon,
           color: Colors.blue.shade500,

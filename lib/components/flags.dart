@@ -10,7 +10,7 @@ class Flags extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
-      children: [
+      children: <Widget>[
         Flag.fromCode(
           FlagsCode.SA,
           height: 20,
@@ -41,7 +41,7 @@ class Flags extends StatelessWidget {
         const Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
         Flag.fromCode(
           FlagsCode.TR,
-          height: 20, 
+          height: 20,
           width: 20,
           borderRadius: 8,
         ),

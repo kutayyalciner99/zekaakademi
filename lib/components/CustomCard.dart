@@ -12,7 +12,7 @@ CustomCard(String title, String subText, String assetImageAddress) {
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         child: Column(
-          children: [
+          children: <Widget>[
             Image.asset(
               assetImageAddress,
               fit: BoxFit.cover,

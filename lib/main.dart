@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
     bool screenModeModerate = MediaQuery.of(context).size.width > 1100;
 
     return Stack(
-      children: [
+      children: <Widget>[
         Scaffold(
           floatingActionButton: FloatingActionButton(
               backgroundColor: Colors.green,
@@ -81,16 +81,16 @@ class _MyHomePageState extends State<MyHomePage> {
             backgroundColor: Colors.grey.withOpacity(0.1),
             elevation: 0,
             title: Column(
-              children: [
+              children: <Widget>[
                 screenModeFullScreen
                     ? Row(
-                        children: [
+                        children: <Widget>[
                           const SizedBox(
                             width: 100,
                           ),
                           Flexible(
                             child: Row(
-                              children: [
+                              children: <Widget>[
                                 Icon(
                                   FontAwesomeIcons.locationDot,
                                   color: Colors.blue.shade500,
@@ -109,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           Flexible(
                             flex: 3,
                             child: Row(
-                              children: [
+                              children: <Widget>[
                                 Icon(
                                   FontAwesomeIcons.envelope,
                                   color: Colors.blue.shade500,
@@ -133,10 +133,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       )
                     : Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
+                        children: <Widget>[
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
+                              children: <Widget>[
                                 Icon(
                                   FontAwesomeIcons.locationDot,
                                   color: Colors.blue.shade500,
@@ -155,7 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             const Padding(padding: EdgeInsets.only(top: 10)),
                             Row(
-                              children: [
+                              children: <Widget>[
                                 Icon(
                                   FontAwesomeIcons.envelope,
                                   color: Colors.blue.shade500,
@@ -180,10 +180,10 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           body: SingleChildScrollView(
             child: Column(
-              children: [
+              children: <Widget>[
                 screenModeFullScreen
                     ? Row(
-                        children: [
+                        children: <Widget>[
                           const Spacer(),
                           Image.asset(
                             'assets/zeka_logo.png',
@@ -199,7 +199,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 launch('tel:+905536273410');
                               },
                               child: Column(
-                                children: [
+                                children: <Widget>[
                                   const Icon(
                                     Icons.phone,
                                     color: Colors.blue,
@@ -229,7 +229,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                           Column(
-                            children: [
+                            children: <Widget>[
                               const Icon(
                                 FontAwesomeIcons.clock,
                                 color: Colors.blue,
@@ -259,7 +259,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       )
                     : Column(
-                        children: [
+                        children: <Widget>[
                           Image.asset(
                             'assets/zeka_logo.png',
                             scale: 4,
@@ -269,13 +269,13 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            children: <Widget>[
                               GestureDetector(
                                 onTap: () {
                                   launch('tel:+905536273410');
                                 },
                                 child: Column(
-                                  children: [
+                                  children: <Widget>[
                                     const Icon(
                                       Icons.phone,
                                       color: Colors.blue,
@@ -308,7 +308,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 width: 20,
                               ),
                               Column(
-                                children: [
+                                children: <Widget>[
                                   const Icon(
                                     FontAwesomeIcons.clock,
                                     color: Colors.blue,
@@ -357,7 +357,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           padding: const EdgeInsets.all(12.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
+                            children: <Widget>[
                               const Spacer(
                                 flex: 2,
                               ),
@@ -417,7 +417,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       )
                     : Row(
-                        children: [
+                        children: <Widget>[
                           const Spacer(),
                           Image.asset(
                             'assets/zeka_logo.png',
@@ -478,7 +478,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 50,
                 ),
                 Column(
-                  children: [
+                  children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: CarouselSlider(
@@ -504,7 +504,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
+                      children: <Widget>[
                         IconButton(
                           icon: const Icon(Icons.arrow_back_ios),
                           onPressed: () {
@@ -535,7 +535,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ? Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
-                                children: [
+                                children: <Widget>[
                                   const Text(
                                     'Çocuğunuzun Gelişimine Bugün Başlayın...',
                                     style: TextStyle(
@@ -561,7 +561,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             : Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
-                                children: [
+                                children: <Widget>[
                                   const Text(
                                     'Çocuğunuzun Gelişimine Bugün Başlayın...',
                                     style: TextStyle(
@@ -589,7 +589,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Wrap(
                           spacing: 10,
                           runSpacing: 10,
-                          children: [
+                          children: <Widget>[
                             CustomCard(
                                 'Dikkat Eksikliği ve Hiperaktivite Bozukluğu',
                                 'Dikkat eksikliği ve hiperaktivite bozukluğu denildiğinde akla genellikle aşırı hareketli çocuklar gelse de, durum her zaman böyle olmamaktadır. Bazen yalnızca dikkat dağınıklığı, bazen yalnızca hiperaktivite, bazen ise dikkat eksikliği ve hiperaktivite bir arada gözlemlenmektedir.',
@@ -614,11 +614,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         )),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
+                      children: <Widget>[
                         Column(
-                          children: [
+                          children: <Widget>[
                             const Text(
-                              'Çocuğunuzun gelişimi ile\n igili bir farklılık mı\n gözlemliyorsunuz ?',
+                              'Çocuğunuzun gelişimi ile\n ilgili bir farklılık mı\n gözlemliyorsunuz ?',
                               style: TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold,
@@ -630,7 +630,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               },
                               child: const Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
+                                children: <Widget>[
                                   Padding(
                                     padding: EdgeInsets.only(top: 6.0),
                                     child: Text(
@@ -658,7 +658,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               height: 40,
                             ),
                             Stack(
-                              children: [
+                              children: <Widget>[
                                 Opacity(
                                   opacity: 0.7,
                                   child: ClipRRect(
@@ -672,21 +672,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                 Positioned(
                                   top: 80,
                                   child: Column(
-                                    children: [
+                                    children: <Widget>[
                                       Container(
                                         width: 410,
                                         color: Colors.black.withOpacity(0.3),
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
-                                          children: [
+                                          children: <Widget>[
                                             const Icon(Icons.phone,
                                                 color: Colors.white),
                                             const SizedBox(
                                               width: 25,
                                             ),
                                             Column(
-                                              children: [
+                                              children: <Widget>[
                                                 const Text(
                                                   'Telefon Numarası',
                                                   style: TextStyle(
@@ -737,7 +737,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         screenModeModerate
                             ? Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
+                                children: <Widget>[
                                   Image.asset(
                                     'assets/kid.png',
                                     scale: 1,
@@ -749,9 +749,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                         child: Padding(
                                           padding: const EdgeInsets.all(20.0),
                                           child: Column(
-                                            children: [
+                                            children: <Widget>[
                                               const Row(
-                                                children: [
+                                                children: <Widget>[
                                                   Icon(
                                                     Icons.phone,
                                                     color: Colors.blue,
@@ -773,7 +773,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
                                                           .spaceAround,
-                                                  children: [
+                                                  children: <Widget>[
                                                     SizedBox(
                                                         height: 50,
                                                         width: 230,
@@ -814,7 +814,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
                                                           .spaceAround,
-                                                  children: [
+                                                  children: <Widget>[
                                                     Expanded(
                                                         child: Padding(
                                                       padding:
@@ -838,7 +838,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
                                                           .spaceAround,
-                                                  children: [
+                                                  children: <Widget>[
                                                     Expanded(
                                                         child: Padding(
                                                       padding:
@@ -889,7 +889,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding:
                       EdgeInsets.only(left: screenModeFullScreen ? 100.0 : 0),
                   child: const Row(
-                    children: [
+                    children: <Widget>[
                       Text(
                         'Neden Zeka Akademi?',
                         style: TextStyle(
@@ -905,8 +905,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.only(
                         left: screenModeFullScreen ? 100.0 : 0, top: 20),
                     child: Row(
-                      children: [
-                        Wrap(children: [
+                      children: <Widget>[
+                        Wrap(children: <Widget>[
                           Text(
                             screenModeFullScreen
                                 ? 'zeka akademi de çocuğunuz için gerekli olan tüm eğitim ve destek programları bilimsel olarak kanıtlanmış\n yöntemlerle alanında uzman özel eğitimci kadromuz tarafından sağlanmaktadır.'
@@ -925,10 +925,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       EdgeInsets.only(left: screenModeFullScreen ? 100.0 : 0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: <Widget>[
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
+                        children: <Widget>[
                           Expanded(
                             child: customRow('Uzman Kadro'),
                           ),
@@ -942,7 +942,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
+                        children: <Widget>[
                           Expanded(
                             child: customRow('Bilimsellik'),
                           ),
@@ -956,7 +956,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
+                        children: <Widget>[
                           Expanded(
                             child: customRow('Etik'),
                           ),
@@ -983,7 +983,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 700,
                   width: MediaQuery.of(context).size.width,
                   child: Column(
-                    children: [
+                    children: <Widget>[
                       const SizedBox(
                         height: 20,
                       ),
@@ -993,7 +993,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ? Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                children: [
+                                children: <Widget>[
                                   const Text(
                                     'Sizden Gelenler.',
                                     style: TextStyle(
@@ -1014,7 +1014,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ],
                               )
                             : Column(
-                                children: [
+                                children: <Widget>[
                                   const Text(
                                     'Sizden Gelenler.',
                                     style: TextStyle(
@@ -1062,7 +1062,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
 
-                Column(children: [
+                Column(children: <Widget>[
                   const SizedBox(
                     height: 20,
                   ),
@@ -1072,7 +1072,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               const EdgeInsets.symmetric(horizontal: 150.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
+                            children: <Widget>[
                               const Text(
                                 'En Son Haberler ve\nYazılarımıza Göz Atın',
                                 style: TextStyle(
@@ -1096,7 +1096,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         )
                       : Column(
-                          children: [
+                          children: <Widget>[
                             const Text(
                               'En Son Haberler ve\nYazılarımıza Göz Atın',
                               style: TextStyle(
@@ -1126,7 +1126,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Wrap(
                         spacing: 10,
                         runSpacing: 10,
-                        children: [
+                        children: <Widget>[
                           CustomCard2(
                               'OTİZM SPEKTURUM BOZUKLUĞU OLAN ÇOCUĞUMLA NASIL OYUN OYNAMALIYIM',
                               'Blog yazımızın tamamın okumak için aşağıdaki butona tıklayınız.',
@@ -1150,7 +1150,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       )),
                 ]),
-                Footer(context)
+                Footer(context, screenModeFullScreen ? true : false)
               ],
             ),
           ),
@@ -1167,7 +1167,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Row customRow2(String input, String input2) {
     return Row(
-      children: [
+      children: <Widget>[
         Container(
           height: 50,
           width: 50,
@@ -1178,7 +1178,7 @@ class _MyHomePageState extends State<MyHomePage> {
           width: 10,
         ),
         Column(
-          children: [
+          children: <Widget>[
             Text(
               input,
               style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
@@ -1198,7 +1198,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Row customRow(String input) {
     return Row(
-      children: [
+      children: <Widget>[
         Container(
           height: 20,
           width: 20,
@@ -1222,7 +1222,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               mainAxisSize: MainAxisSize.min,
-              children: [
+              children: <Widget>[
                 Text(
                   text,
                   style: TextStyle(

@@ -12,8 +12,7 @@ CustomCard2(String title, String subText, String assetImageAddress) {
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         child: Column(
-          children: [
-            
+          children: <Widget>[
             Image.asset(
               assetImageAddress,
               fit: BoxFit.cover,
@@ -31,7 +30,7 @@ CustomCard2(String title, String subText, String assetImageAddress) {
             Padding(
               padding: const EdgeInsets.all(24.0),
               child: Column(
-                children: [
+                children: <Widget>[
                   Text(
                     subText,
                     style: TextStyle(
@@ -43,7 +42,7 @@ CustomCard2(String title, String subText, String assetImageAddress) {
                     height: 20,
                   ),
                   Row(
-                    children: [
+                    children: <Widget>[
                       TextButton(
                         child: const Text('Devamını oku',
                             style: TextStyle(
