@@ -62,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     bool screenModeFullScreen = MediaQuery.of(context).size.width > 768;
     bool screenModeModerate = MediaQuery.of(context).size.width > 1100;
+    bool screenModeModerate2 = MediaQuery.of(context).size.width > 1400;
 
     return Stack(
       children: <Widget>[
@@ -486,7 +487,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         items: carouselItems,
                         options: CarouselOptions(
                           viewportFraction: 1,
-                          height: 500,
+                          height: 550,
                           autoPlay: false,
                           autoPlayCurve: Curves.ease,
                           enableInfiniteScroll: true,
@@ -628,10 +629,10 @@ class _MyHomePageState extends State<MyHomePage> {
                               onTap: () {
                                 launch('tel:+905536273410');
                               },
-                              child: const Row(
+                              child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  Padding(
+                                  const Padding(
                                     padding: EdgeInsets.only(top: 6.0),
                                     child: Text(
                                       'Hemen Bizi Arayın',
@@ -641,7 +642,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   ),
-                                  Padding(
+                                  const Padding(
                                     padding: EdgeInsets.only(top: 4.0),
                                     child: Text(
                                       ' 0 553 627 34 10',
@@ -734,7 +735,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             )
                           ],
                         ),
-                        screenModeModerate
+                        screenModeModerate2
                             ? Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
@@ -750,13 +751,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                           padding: const EdgeInsets.all(20.0),
                                           child: Column(
                                             children: <Widget>[
-                                              const Row(
+                                              Row(
                                                 children: <Widget>[
-                                                  Icon(
+                                                  const Icon(
                                                     Icons.phone,
                                                     color: Colors.blue,
                                                   ),
-                                                  Text(
+                                                  const Text(
                                                     '  Bize Ulaşın',
                                                     style: TextStyle(
                                                       color: Colors.blue,
@@ -766,15 +767,15 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   )
                                                 ],
                                               ),
-                                              const Padding(
-                                                padding:
-                                                    EdgeInsets.only(top: 20),
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 20),
                                                 child: Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
                                                           .spaceAround,
                                                   children: <Widget>[
-                                                    SizedBox(
+                                                    const SizedBox(
                                                         height: 50,
                                                         width: 230,
                                                         child: TextField(
@@ -784,7 +785,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                               hintText:
                                                                   'Ad Soyad'),
                                                         )),
-                                                    SizedBox(
+                                                    const SizedBox(
                                                         height: 50,
                                                         width: 230,
                                                         child: TextField(
@@ -794,7 +795,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                               hintText:
                                                                   'E-Posta Adresi'),
                                                         )),
-                                                    SizedBox(
+                                                    const SizedBox(
                                                         height: 50,
                                                         width: 230,
                                                         child: TextField(
@@ -807,15 +808,15 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   ],
                                                 ),
                                               ),
-                                              const Padding(
-                                                padding:
-                                                    EdgeInsets.only(top: 20),
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 20),
                                                 child: Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
                                                           .spaceAround,
                                                   children: <Widget>[
-                                                    Expanded(
+                                                    const Expanded(
                                                         child: Padding(
                                                       padding:
                                                           EdgeInsets.symmetric(
@@ -831,15 +832,15 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   ],
                                                 ),
                                               ),
-                                              const Padding(
-                                                padding:
-                                                    EdgeInsets.only(top: 20),
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 20),
                                                 child: Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
                                                           .spaceAround,
                                                   children: <Widget>[
-                                                    Expanded(
+                                                    const Expanded(
                                                         child: Padding(
                                                       padding:
                                                           EdgeInsets.symmetric(
@@ -861,7 +862,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                         vertical: 20.0,
                                                         horizontal: 20),
                                                 child: SizedBox(
-                                                    height: 40,
+                                                    height: 60,
                                                     width: 800,
                                                     child: ElevatedButton(
                                                         onPressed: () {},
@@ -888,9 +889,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 Padding(
                   padding:
                       EdgeInsets.only(left: screenModeFullScreen ? 100.0 : 0),
-                  child: const Row(
+                  child: Row(
                     children: <Widget>[
-                      Text(
+                      const Text(
                         'Neden Zeka Akademi?',
                         style: TextStyle(
                           fontSize: 32,
@@ -1040,7 +1041,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       CarouselSlider(
                         carouselController: _carouselController2,
-                        items: carouselItems2,
+                        items: carouselItems2(screenModeModerate2),
                         options: CarouselOptions(
                           viewportFraction: 1,
                           height: 500,

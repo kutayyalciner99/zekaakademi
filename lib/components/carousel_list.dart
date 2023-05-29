@@ -9,9 +9,9 @@ final List<Widget> carouselItems = <Widget>[
       RichText(
           text: const TextSpan(
               children: <TextSpan>[
-            TextSpan(text: 'Otizm '),
+            TextSpan(text: 'Otizm ', style: TextStyle(color: Colors.blue)),
             TextSpan(text: 'Spektrum\n', style: TextStyle(color: Colors.blue)),
-            TextSpan(text: 'Bozukluğu'),
+            TextSpan(text: 'Bozukluğu', style: TextStyle(color: Colors.blue)),
           ],
               style: TextStyle(
                 fontWeight: FontWeight.w900,
@@ -50,9 +50,9 @@ final List<Widget> carouselItems = <Widget>[
       RichText(
           text: const TextSpan(
               children: <TextSpan>[
-            TextSpan(text: 'Özel '),
+            TextSpan(text: 'Özel ', style: TextStyle(color: Colors.blue)),
             TextSpan(text: 'Öğrenme\n', style: TextStyle(color: Colors.blue)),
-            TextSpan(text: 'Güçlüğü'),
+            TextSpan(text: 'Güçlüğü', style: TextStyle(color: Colors.blue)),
           ],
               style: TextStyle(
                 fontWeight: FontWeight.w900,
@@ -91,7 +91,7 @@ final List<Widget> carouselItems = <Widget>[
       RichText(
           text: const TextSpan(
               children: <TextSpan>[
-            TextSpan(text: 'Zihinsel\n'),
+            TextSpan(text: 'Zihinsel\n', style: TextStyle(color: Colors.blue)),
             TextSpan(text: 'Yetersizlik', style: TextStyle(color: Colors.blue)),
           ],
               style: TextStyle(
@@ -131,11 +131,10 @@ final List<Widget> carouselItems = <Widget>[
       RichText(
           text: const TextSpan(
               children: <TextSpan>[
-            TextSpan(text: 'Erken'),
+            TextSpan(text: 'Erken', style: TextStyle(color: Colors.blue)),
             TextSpan(text: ' Çocukluk\n', style: TextStyle(color: Colors.blue)),
             TextSpan(
-              text: 'Özel Eğitimi',
-            ),
+                text: 'Özel Eğitimi', style: TextStyle(color: Colors.blue)),
           ],
               style: TextStyle(
                 fontWeight: FontWeight.w900,
@@ -174,11 +173,10 @@ final List<Widget> carouselItems = <Widget>[
       RichText(
           text: const TextSpan(
               children: <TextSpan>[
-            TextSpan(text: 'Ergoterapi ve\n'),
-            TextSpan(text: 'Duyu\n'),
             TextSpan(
-              text: 'Bütünleme',
-            ),
+                text: 'Ergoterapi ve\n', style: TextStyle(color: Colors.blue)),
+            TextSpan(text: 'Duyu\n', style: TextStyle(color: Colors.blue)),
+            TextSpan(text: 'Bütünleme', style: TextStyle(color: Colors.blue)),
           ],
               style: TextStyle(
                 fontWeight: FontWeight.w900,

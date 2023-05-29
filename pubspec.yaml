@@ -17,7 +17,6 @@ dependencies:
   url_launcher: ^6.1.10
   flutter_translate: ^4.0.3
   carousel_slider: ^4.2.1
-  g_recaptcha_v3: ^0.0.4
 
 dev_dependencies:
   flutter_test:
