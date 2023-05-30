@@ -1,6 +1,6 @@
 # zekaakademi
 
-A new Flutter project.
+Zeka Akademi Özel Eğitim Merkezi.
 
 ## Getting Started
 

@@ -15,9 +15,9 @@ List<Widget> carouselItems2(bool screenModeFullScreen) {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       const Text(
-                        'Bu işi meslekten ziyade gönülden yapan,\nmaddiyattan çok öğrencinin ihtiyaçlarına\ngöre hareket eden,\noğlumun gelişimine büyük katkı sunan,\naileden biri olarak gördüğümüz Gizem Hocamız,\nkurumunuzu başarıya taşıyacağınıza ve\nbirçok çocuğun hayatına\ndokunacağınıza inancımız tam. Sizi\nseviyoruz. Hayırlı olsun.',
+                        'Bu işi meslekten ziyade gönülden\nyapan, maddiyattan çok\nöğrencinin ihtiyaçlarına göre hareket eden,\noğlumun gelişimine büyük katkı\n sunan, aileden biri olarak\ngördüğümüz Gizem Hocamız,\nkurumunuzu başarıya taşıyacağınıza ve\nbirçok çocuğun hayatına\ndokunacağınıza inancımız tam. Sizi\nseviyoruz. Hayırlı olsun.',
                         style: TextStyle(
-                            fontSize: 19, fontStyle: FontStyle.italic),
+                            fontSize: 16, fontStyle: FontStyle.italic),
                       ),
                       Row(
                         children: <Widget>[
@@ -34,7 +34,7 @@ List<Widget> carouselItems2(bool screenModeFullScreen) {
                           const Text(
                             'Serap Öner',
                             style: TextStyle(
-                                fontSize: 19, fontStyle: FontStyle.italic),
+                                fontSize: 18, fontStyle: FontStyle.italic),
                           ),
                         ],
                       ),
@@ -55,9 +55,9 @@ List<Widget> carouselItems2(bool screenModeFullScreen) {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       const Text(
-                        'Bu işi meslekten ziyade gönülden yapan,\nmaddiyattan çok öğrencinin ihtiyaçlarına\ngöre hareket eden,\noğlumun gelişimine büyük katkı sunan,\naileden biri olarak gördüğümüz Gizem Hocamız,\nkurumunuzu başarıya taşıyacağınıza ve\nbirçok çocuğun hayatına\ndokunacağınıza inancımız tam. Sizi\nseviyoruz. Hayırlı olsun.',
+                        'Bu işi meslekten ziyade gönülden\nyapan, maddiyattan çok\nöğrencinin ihtiyaçlarına göre hareket eden,\noğlumun gelişimine büyük katkı\n sunan, aileden biri olarak\ngördüğümüz Gizem Hocamız,\nkurumunuzu başarıya taşıyacağınıza ve\nbirçok çocuğun hayatına\ndokunacağınıza inancımız tam. Sizi\nseviyoruz. Hayırlı olsun.',
                         style: TextStyle(
-                            fontSize: 19, fontStyle: FontStyle.italic),
+                            fontSize: 16, fontStyle: FontStyle.italic),
                       ),
                       Row(
                         children: <Widget>[
@@ -74,7 +74,7 @@ List<Widget> carouselItems2(bool screenModeFullScreen) {
                           const Text(
                             'Serap Öner',
                             style: TextStyle(
-                                fontSize: 19, fontStyle: FontStyle.italic),
+                                fontSize: 18, fontStyle: FontStyle.italic),
                           ),
                         ],
                       ),
@@ -95,9 +95,9 @@ List<Widget> carouselItems2(bool screenModeFullScreen) {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       const Text(
-                        'Bu işi meslekten ziyade gönülden yapan,\nmaddiyattan çok öğrencinin ihtiyaçlarına\ngöre hareket eden,\noğlumun gelişimine büyük katkı sunan,\naileden biri olarak gördüğümüz Gizem Hocamız,\nkurumunuzu başarıya taşıyacağınıza ve\nbirçok çocuğun hayatına\ndokunacağınıza inancımız tam. Sizi\nseviyoruz. Hayırlı olsun.',
+                        'Bu işi meslekten ziyade gönülden\nyapan, maddiyattan çok\nöğrencinin ihtiyaçlarına göre hareket eden,\noğlumun gelişimine büyük katkı\n sunan, aileden biri olarak\ngördüğümüz Gizem Hocamız,\nkurumunuzu başarıya taşıyacağınıza ve\nbirçok çocuğun hayatına\ndokunacağınıza inancımız tam. Sizi\nseviyoruz. Hayırlı olsun.',
                         style: TextStyle(
-                            fontSize: 19, fontStyle: FontStyle.italic),
+                            fontSize: 16, fontStyle: FontStyle.italic),
                       ),
                       Row(
                         children: <Widget>[
@@ -114,7 +114,7 @@ List<Widget> carouselItems2(bool screenModeFullScreen) {
                           const Text(
                             'Serap Öner',
                             style: TextStyle(
-                                fontSize: 19, fontStyle: FontStyle.italic),
+                                fontSize: 18, fontStyle: FontStyle.italic),
                           ),
                         ],
                       ),

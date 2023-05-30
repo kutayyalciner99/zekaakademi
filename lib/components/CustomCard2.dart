@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-CustomCard2(String title, String subText, String assetImageAddress) {
+CustomCard2(
+    String title, String subText, String assetImageAddress, bool screenMode) {
   return InkWell(
     hoverColor: Colors.transparent,
     splashColor: Colors.lightBlue.shade200,
@@ -8,7 +9,7 @@ CustomCard2(String title, String subText, String assetImageAddress) {
     onTap: () {},
     child: SizedBox(
       width: 500,
-      height: 700,
+      height: screenMode ? 700 : 480,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         child: Column(
@@ -21,14 +22,14 @@ CustomCard2(String title, String subText, String assetImageAddress) {
               padding: const EdgeInsets.all(20.0),
               child: Text(
                 title,
-                style: const TextStyle(
-                    fontSize: 22,
+                style: TextStyle(
+                    fontSize: screenMode ? 22 : 18,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.bold),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(24.0),
+              padding: EdgeInsets.all(screenMode ? 24.0 : 10),
               child: Column(
                 children: <Widget>[
                   Text(
