@@ -380,34 +380,55 @@ class _MyHomePageState extends State<MyHomePage> {
                                       const Spacer(
                                         flex: 2,
                                       ),
-                                      TextButton1(
+                                      const TextButton1(
                                         text: 'Ana Sayfa',
-                                        onPressed: () {},
+                                        toolTip: '',
+                                        items: [],
                                       ),
                                       const Spacer(),
-                                      TextButton1(
+                                      const TextButton1(
                                         text: 'Kurumsal',
-                                        onPressed: () {},
+                                        toolTip: 'Kurumsal Seçenekleri',
+                                        items: [
+                                          PopupMenuItem(child: Text('Test')),
+                                          PopupMenuItem(child: Text('Test1'))
+                                        ],
                                       ),
                                       const Spacer(),
-                                      TextButton1(
+                                      const TextButton1(
                                         text: 'Hizmet Alanlarımız',
-                                        onPressed: () {},
+                                        toolTip: 'Hizmet Seçenekleri',
+                                        items: [
+                                          PopupMenuItem(child: Text('Test')),
+                                          PopupMenuItem(child: Text('Test1'))
+                                        ],
                                       ),
                                       const Spacer(),
-                                      TextButton1(
+                                      const TextButton1(
+                                        toolTip: 'Programlarımız Seçenekleri',
                                         text: 'Programlarımız',
-                                        onPressed: () {},
+                                        items: [
+                                          PopupMenuItem(child: Text('Test')),
+                                          PopupMenuItem(child: Text('Test1'))
+                                        ],
                                       ),
                                       const Spacer(),
-                                      TextButton1(
+                                      const TextButton1(
                                         text: 'Testler',
-                                        onPressed: () {},
+                                        toolTip: 'Test Seçenekleri',
+                                        items: [
+                                          PopupMenuItem(child: Text('Test')),
+                                          PopupMenuItem(child: Text('Test1'))
+                                        ],
                                       ),
                                       const Spacer(),
-                                      TextButton1(
+                                      const TextButton1(
+                                        toolTip: 'Bize Ulaşın',
                                         text: 'Bize Ulaşın',
-                                        onPressed: () {},
+                                        items: [
+                                          PopupMenuItem(child: Text('Test')),
+                                          PopupMenuItem(child: Text('Test1'))
+                                        ],
                                       ),
                                       const Spacer(
                                         flex: 2,
@@ -448,6 +469,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                   PopupMenuButton(
                                     splashRadius: 32,
+                                    tooltip: 'Göster',
                                     child: const Icon(
                                       Icons.menu,
                                       size: 32,
@@ -458,10 +480,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                           setState(() {});
                                         }),
                                         popUpExpansion('Kurumsal', () {}, [
-                                          popUpExpansionItem(
-                                              'Hakkımızda', () {
-                                                Navigator.push(context, MaterialPageRoute(builder: (builder)=> AboutUs()));
-                                              })
+                                          popUpExpansionItem('Hakkımızda', () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (builder) =>
+                                                        const AboutUs()));
+                                          })
                                         ]),
                                         popUpExpansion(
                                             'Hizmet Alanlarımız', () {}, [
@@ -1138,15 +1163,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                             height: 70,
                                             width: 200,
                                             child: ElevatedButton(
-                                              child: 
-                                              
-                                              TextButton(
-                                                onPressed: () {
-                                                  
-                                                },
+                                              child: TextButton(
+                                                onPressed: () {},
                                                 child: const Text(
                                                   'Hakkımızda',
-                                                  style: TextStyle(fontSize: 22),
+                                                  style:
+                                                      TextStyle(fontSize: 22),
                                                 ),
                                               ),
                                               onPressed: () {},
@@ -1411,26 +1433,58 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class TextButton1 extends StatelessWidget {
-  final Function()? onPressed;
+class TextButton1 extends StatefulWidget {
+  final List<PopupMenuItem>? items;
   final String text;
+  final String toolTip;
+
   const TextButton1({
-    super.key,
-    this.onPressed,
+    Key? key,
+    this.items,
     required this.text,
-  });
+    required this.toolTip,
+  }) : super(key: key);
+
+  @override
+  _TextButton1State createState() => _TextButton1State();
+}
+
+class _TextButton1State extends State<TextButton1> {
+  bool isHovered = false;
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: onPressed,
-      child: Text(
-        text,
-        style: const TextStyle(
-            fontFamily: 'Poppins',
-            fontWeight: FontWeight.w600,
-            fontSize: 20,
-            color: Colors.black),
+    return MouseRegion(
+      onEnter: (_) => setState(() => isHovered = true),
+      onExit: (_) => setState(() => isHovered = false),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 20.0),
+        child: widget.items != []
+            ? PopupMenuButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14)),
+                tooltip: widget.toolTip,
+                offset: const Offset(0, 30),
+                child: Text(
+                  widget.text,
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20,
+                    color: isHovered ? Colors.blue : Colors.black,
+                  ),
+                ),
+                itemBuilder: (_) => widget.items!,
+              )
+            : Text(
+                widget.text,
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 20,
+                  color: isHovered ? Colors.blue : Colors.black,
+                ),
+              ),
       ),
     );
   }
