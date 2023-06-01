@@ -386,12 +386,22 @@ class _MyHomePageState extends State<MyHomePage> {
                                         items: [],
                                       ),
                                       const Spacer(),
-                                      const TextButton1(
+                                      TextButton1(
                                         text: 'Kurumsal',
                                         toolTip: 'Kurumsal Seçenekleri',
                                         items: [
-                                          PopupMenuItem(child: Text('Test')),
-                                          PopupMenuItem(child: Text('Test1'))
+                                          PopupMenuItem(
+                                            child: const Text('Hakkımızda'),
+                                            onTap: () {
+  Navigator.of(context).push(
+    MaterialPageRoute(
+      builder: (BuildContext context) {
+        return AboutUs(); // Replace with the widget for the new page
+      },
+    ),
+  );
+}
+                                          ),
                                         ],
                                       ),
                                       const Spacer(),
@@ -425,10 +435,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       const TextButton1(
                                         toolTip: 'Bize Ulaşın',
                                         text: 'Bize Ulaşın',
-                                        items: [
-                                          PopupMenuItem(child: Text('Test')),
-                                          PopupMenuItem(child: Text('Test1'))
-                                        ],
+                                        items: [],
                                       ),
                                       const Spacer(
                                         flex: 2,
@@ -1459,30 +1466,38 @@ class _TextButton1State extends State<TextButton1> {
       onExit: (_) => setState(() => isHovered = false),
       child: Padding(
         padding: const EdgeInsets.only(top: 20.0),
-        child: widget.items != []
+        child: widget.items!.isNotEmpty
             ? PopupMenuButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(14)),
                 tooltip: widget.toolTip,
                 offset: const Offset(0, 30),
-                child: Text(
-                  widget.text,
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600,
-                    fontSize: 20,
-                    color: isHovered ? Colors.blue : Colors.black,
-                  ),
+                child: Row(
+                  children: [
+                    Text(
+                      widget.text,
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                        color: isHovered ? Colors.blue : Colors.black,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    const Icon(Icons.expand_circle_down_outlined)
+                  ],
                 ),
                 itemBuilder: (_) => widget.items!,
               )
             : Text(
                 widget.text,
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w600,
                   fontSize: 20,
-                  color: isHovered ? Colors.blue : Colors.black,
+                  color: Colors.black,
                 ),
               ),
       ),
