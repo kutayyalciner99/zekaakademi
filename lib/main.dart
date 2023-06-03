@@ -391,17 +391,27 @@ class _MyHomePageState extends State<MyHomePage> {
                                         toolTip: 'Kurumsal Seçenekleri',
                                         items: [
                                           PopupMenuItem(
-                                            child: const Text('Hakkımızda'),
-                                            onTap: () {
-  Navigator.of(context).push(
-    MaterialPageRoute(
-      builder: (BuildContext context) {
-        return AboutUs(); // Replace with the widget for the new page
-      },
-    ),
-  );
-}
-                                          ),
+                                              child: TextButton(
+                                                
+                                                  onPressed: () {
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder: (builder) =>
+                                                                const AboutUs()));
+                                                  },
+                                                  child:
+                                                      const Text('Hakkımızda')),
+                                              onTap: () {
+                                                Navigator.of(context).push(
+                                                  MaterialPageRoute(
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return const AboutUs(); // Replace with the widget for the new page
+                                                    },
+                                                  ),
+                                                );
+                                              }),
                                         ],
                                       ),
                                       const Spacer(),
@@ -701,11 +711,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                         launch('tel:+905536273410');
                                       },
                                       child: screenModeModerate2
-                                          ? Row(
+                                          ? const Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: <Widget>[
-                                                const Padding(
+                                                Padding(
                                                   padding:
                                                       EdgeInsets.only(top: 6.0),
                                                   child: Text(
@@ -716,7 +726,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     ),
                                                   ),
                                                 ),
-                                                const Padding(
+                                                Padding(
                                                   padding:
                                                       EdgeInsets.only(top: 4.0),
                                                   child: Text(
@@ -730,11 +740,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 )
                                               ],
                                             )
-                                          : Column(
+                                          : const Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: <Widget>[
-                                                const Padding(
+                                                Padding(
                                                   padding:
                                                       EdgeInsets.only(top: 6.0),
                                                   child: Text(
@@ -745,7 +755,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     ),
                                                   ),
                                                 ),
-                                                const Padding(
+                                                Padding(
                                                   padding:
                                                       EdgeInsets.only(top: 4.0),
                                                   child: Text(
@@ -878,13 +888,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                                       20.0),
                                                   child: Column(
                                                     children: <Widget>[
-                                                      Row(
+                                                      const Row(
                                                         children: <Widget>[
-                                                          const Icon(
+                                                          Icon(
                                                             Icons.phone,
                                                             color: Colors.blue,
                                                           ),
-                                                          const Text(
+                                                          Text(
                                                             '  Bize Ulaşın',
                                                             style: TextStyle(
                                                               color:
@@ -896,16 +906,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                                           )
                                                         ],
                                                       ),
-                                                      Padding(
+                                                      const Padding(
                                                         padding:
-                                                            const EdgeInsets
-                                                                .only(top: 20),
+                                                            EdgeInsets.only(
+                                                                top: 20),
                                                         child: Row(
                                                           mainAxisAlignment:
                                                               MainAxisAlignment
                                                                   .spaceAround,
                                                           children: <Widget>[
-                                                            const SizedBox(
+                                                            SizedBox(
                                                                 height: 50,
                                                                 width: 230,
                                                                 child:
@@ -916,7 +926,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                                       hintText:
                                                                           'Ad Soyad'),
                                                                 )),
-                                                            const SizedBox(
+                                                            SizedBox(
                                                                 height: 50,
                                                                 width: 230,
                                                                 child:
@@ -927,7 +937,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                                       hintText:
                                                                           'E-Posta Adresi'),
                                                                 )),
-                                                            const SizedBox(
+                                                            SizedBox(
                                                                 height: 50,
                                                                 width: 230,
                                                                 child:
@@ -941,16 +951,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                                           ],
                                                         ),
                                                       ),
-                                                      Padding(
+                                                      const Padding(
                                                         padding:
-                                                            const EdgeInsets
-                                                                .only(top: 20),
+                                                            EdgeInsets.only(
+                                                                top: 20),
                                                         child: Row(
                                                           mainAxisAlignment:
                                                               MainAxisAlignment
                                                                   .spaceAround,
                                                           children: <Widget>[
-                                                            const Expanded(
+                                                            Expanded(
                                                                 child: Padding(
                                                               padding: EdgeInsets
                                                                   .symmetric(
@@ -967,16 +977,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                                           ],
                                                         ),
                                                       ),
-                                                      Padding(
+                                                      const Padding(
                                                         padding:
-                                                            const EdgeInsets
-                                                                .only(top: 20),
+                                                            EdgeInsets.only(
+                                                                top: 20),
                                                         child: Row(
                                                           mainAxisAlignment:
                                                               MainAxisAlignment
                                                                   .spaceAround,
                                                           children: <Widget>[
-                                                            const Expanded(
+                                                            Expanded(
                                                                 child: Padding(
                                                               padding: EdgeInsets
                                                                   .symmetric(
