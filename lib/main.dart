@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:url_launcher/url_launcher.dart';
+import 'package:zekaakademi/components/sizden_gelenler.dart';
 import 'package:zekaakademi/pages/about_us.dart';
 import 'package:zekaakademi/components/CustomCard.dart';
 import 'package:zekaakademi/components/CustomCard2.dart';
@@ -12,8 +13,21 @@ import 'package:zekaakademi/components/SocialIcon.dart';
 import 'package:zekaakademi/components/carousel_list.dart';
 import 'package:zekaakademi/components/flags.dart';
 import 'package:zekaakademi/components/footer.dart';
+import 'package:zekaakademi/pages/autism_spectrum.dart';
+import 'package:zekaakademi/pages/contact_us.dart';
+import 'package:zekaakademi/pages/hizmet/services_dikkat.dart';
+import 'package:zekaakademi/pages/hizmet/services_dil.dart';
+import 'package:zekaakademi/pages/hizmet/services_okul.dart';
+import 'package:zekaakademi/pages/hizmet/services_ozel.dart';
+import 'package:zekaakademi/pages/hizmet/services_zihinsel.dart';
+import 'package:zekaakademi/pages/program/autism.dart';
+import 'package:zekaakademi/pages/program/davranis.dart';
+import 'package:zekaakademi/pages/program/disgrafya.dart';
+import 'package:zekaakademi/pages/program/duyu.dart';
+import 'package:zekaakademi/pages/program/oyun_terapisi.dart';
 
 import 'components/carousel_list2.dart';
+import 'pages/program/dyslexia.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -58,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final CarouselController _carouselController2 = CarouselController();
   int _currentCarouselIndex = 0;
   int _currentCarouselIndex2 = 0;
-  int selectedIndex = 0;
+  int pageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -202,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(26.0),
-                                child: GestureDetector(
+                                child: InkWell(
                                   onTap: () {
                                     launch('tel:+905536273410');
                                   },
@@ -365,6 +379,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     //navbar
                     screenModeFullScreen
                         ? Container(
+                            height: 130,
                             color: Colors.grey.withOpacity(0.1),
                             child: Padding(
                               padding: const EdgeInsets.all(12.0),
@@ -380,7 +395,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     items: [],
                                     onPressed: () {
                                       setState(() {
-                                        selectedIndex = 0;
+                                        pageIndex = 0;
                                       });
                                     },
                                   ),
@@ -393,7 +408,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         'Hakkımızda',
                                         () {
                                           setState(() {
-                                            selectedIndex = 1;
+                                            pageIndex = 1;
                                             Navigator.pop(context);
                                           });
                                         },
@@ -408,46 +423,46 @@ class _MyHomePageState extends State<MyHomePage> {
                                       fullscreenPopup(
                                         'Dikkat Eksikliği ve Hiperaktivite Bozukluğu',
                                         () {
-                                          Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                  builder: (builder) =>
-                                                      const AboutUs()));
+                                          setState(() {
+                                            pageIndex = 2;
+                                            Navigator.pop(context);
+                                          });
                                         },
                                       ),
                                       fullscreenPopup(
                                         'Zihinsel Yetersizlikler',
                                         () {
-                                          Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                  builder: (builder) =>
-                                                      const AboutUs()));
+                                          setState(() {
+                                            pageIndex = 3;
+                                            Navigator.pop(context);
+                                          });
                                         },
                                       ),
                                       fullscreenPopup(
                                         'Dil ve Konuşma Güçlükleri',
                                         () {
-                                          Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                  builder: (builder) =>
-                                                      const AboutUs()));
+                                          setState(() {
+                                            pageIndex = 4;
+                                            Navigator.pop(context);
+                                          });
                                         },
                                       ),
                                       fullscreenPopup(
                                         'Okula Destek ve Hazırlık',
                                         () {
-                                          Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                  builder: (builder) =>
-                                                      const AboutUs()));
+                                          setState(() {
+                                            pageIndex = 5;
+                                            Navigator.pop(context);
+                                          });
                                         },
                                       ),
                                       fullscreenPopup(
                                         'Özel Öğrenme Güçlüğü',
                                         () {
-                                          Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                  builder: (builder) =>
-                                                      const AboutUs()));
+                                          setState(() {
+                                            pageIndex = 6;
+                                            Navigator.pop(context);
+                                          });
                                         },
                                       ),
                                     ],
@@ -460,55 +475,55 @@ class _MyHomePageState extends State<MyHomePage> {
                                       fullscreenPopup(
                                         'Uygulamalı Davranış Analizi (UDA)\nApplied Behavioral Analysis (ABA)',
                                         () {
-                                          Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                  builder: (builder) =>
-                                                      const AboutUs()));
+                                          setState(() {
+                                            pageIndex = 7;
+                                            Navigator.pop(context);
+                                          });
                                         },
                                       ),
                                       fullscreenPopup(
                                         'Otistik Çocuklar için Davranışsal Eğitim Program: (OGIDEP)',
                                         () {
-                                          Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                  builder: (builder) =>
-                                                      const AboutUs()));
+                                          setState(() {
+                                            pageIndex = 8;
+                                            Navigator.pop(context);
+                                          });
                                         },
                                       ),
                                       fullscreenPopup(
                                         'Duyu Bütünleme Terapisi',
                                         () {
-                                          Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                  builder: (builder) =>
-                                                      const AboutUs()));
+                                          setState(() {
+                                            pageIndex = 9;
+                                            Navigator.pop(context);
+                                          });
                                         },
                                       ),
                                       fullscreenPopup(
                                         'Oyun Terapisi',
                                         () {
-                                          Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                  builder: (builder) =>
-                                                      const AboutUs()));
+                                          setState(() {
+                                            pageIndex = 10;
+                                            Navigator.pop(context);
+                                          });
                                         },
                                       ),
                                       fullscreenPopup(
                                         'Disleksi Müdahale Programı (DMP)',
                                         () {
-                                          Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                  builder: (builder) =>
-                                                      const AboutUs()));
+                                          setState(() {
+                                            pageIndex = 11;
+                                            Navigator.pop(context);
+                                          });
                                         },
                                       ),
                                       fullscreenPopup(
                                         'Disgrafya Müdahale Programı',
                                         () {
-                                          Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                  builder: (builder) =>
-                                                      const AboutUs()));
+                                          setState(() {
+                                            pageIndex = 12;
+                                            Navigator.pop(context);
+                                          });
                                         },
                                       ),
                                     ],
@@ -521,19 +536,24 @@ class _MyHomePageState extends State<MyHomePage> {
                                       fullscreenPopup(
                                         'Otizm Spekturum Bozukluğu',
                                         () {
-                                          Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                  builder: (builder) =>
-                                                      const AboutUs()));
+                                          setState(() {
+                                            pageIndex = 13;
+                                            Navigator.pop(context);
+                                          });
                                         },
                                       ),
                                     ],
                                   ),
                                   const Spacer(),
-                                  const TextButton1(
+                                  TextButton1(
                                     toolTip: 'Bize Ulaşın',
                                     text: 'Bize Ulaşın',
                                     items: [],
+                                    onPressed: () {
+                                      setState(() {
+                                        pageIndex = 14;
+                                      });
+                                    },
                                   ),
                                   const Spacer(
                                     flex: 2,
@@ -582,16 +602,15 @@ class _MyHomePageState extends State<MyHomePage> {
                                   return [
                                     popUpItem('Ana Sayfa', () {
                                       setState(() {
-                                        selectedIndex = 0;
+                                        pageIndex = 0;
                                       });
                                     }),
                                     popUpExpansion('Kurumsal', () {}, [
                                       popUpExpansionItem('Hakkımızda', () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (builder) =>
-                                                    const AboutUs()));
+                                        setState(() {
+                                          pageIndex = 1;
+                                          Navigator.pop(context);
+                                        });
                                       })
                                     ]),
                                     popUpExpansion(
@@ -635,7 +654,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     const SizedBox(
                       height: 50,
                     ),
-                    _buildSelectedWidget()
+                    _buildSelectedWidget(),
+                    Footer(context, screenModeModerate ? true : false)
                   ]),
                 )
               ]),
@@ -654,7 +674,7 @@ class _MyHomePageState extends State<MyHomePage> {
     bool screenModeFullScreen = MediaQuery.of(context).size.width > 768;
     bool screenModeModerate = MediaQuery.of(context).size.width > 1100;
     bool screenModeModerate2 = MediaQuery.of(context).size.width > 1400;
-    switch (selectedIndex) {
+    switch (pageIndex) {
       case 0:
         return Column(
           children: <Widget>[
@@ -1200,54 +1220,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                    child: screenModeFullScreen
-                        ? Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              const Text(
-                                'Sizden Gelenler.',
-                                style: TextStyle(
-                                    fontSize: 30, fontWeight: FontWeight.bold),
-                              ),
-                              Container(
-                                height: 70,
-                                width: 200,
-                                child: ElevatedButton(
-                                  child: TextButton(
-                                    onPressed: () {},
-                                    child: const Text(
-                                      'Hakkımızda',
-                                      style: TextStyle(fontSize: 22),
-                                    ),
-                                  ),
-                                  onPressed: () {},
-                                ),
-                              )
-                            ],
-                          )
-                        : Column(
-                            children: <Widget>[
-                              const Text(
-                                'Sizden Gelenler.',
-                                style: TextStyle(
-                                    fontSize: 30, fontWeight: FontWeight.bold),
-                              ),
-                              Container(
-                                height: 70,
-                                width: 200,
-                                child: ElevatedButton(
-                                  child: const Text(
-                                    'Hakkımızda',
-                                    style: TextStyle(fontSize: 22),
-                                  ),
-                                  onPressed: () {},
-                                ),
-                              )
-                            ],
-                          ),
-                  ),
+                  SizdenGelenler(screenModeFullScreen: screenModeFullScreen),
                   const SizedBox(
                     height: 40,
                   ),
@@ -1366,13 +1339,40 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   )),
             ]),
-            Footer(context, screenModeFullScreen ? true : false)
           ],
         );
       case 1:
-        return const AboutUs();
+        return AboutUs(
+          screenModeFullScreen: screenModeModerate,
+        );
       case 2:
-        return Column();
+        return const LackofAttention();
+      case 3:
+        return const Zihinsel();
+      case 4:
+        return const Dil();
+      case 5:
+        return const School();
+      case 6:
+        return const Special();
+      case 7:
+        return const Davranis();
+      case 8:
+        return const Autism();
+      case 9:
+        return const Duyu();
+      case 10:
+        return const GameTherapy();
+      case 11:
+        return const Dyslexia();
+      case 12:
+        return const Disgrafya();
+      case 13:
+        return const AutismSpectrum();
+      case 14:
+        return ContactUs(
+          screenModeFullScreen: screenModeModerate,
+        );
       default:
         return Container();
     }

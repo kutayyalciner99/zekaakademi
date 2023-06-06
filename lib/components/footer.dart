@@ -271,10 +271,10 @@ Footer(BuildContext context, bool fullScreenMode) {
           //
           : Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Image.asset(
                       'assets/zeka_logo.png',
@@ -288,6 +288,7 @@ Footer(BuildContext context, bool fullScreenMode) {
                       height: 40,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Column(
                           children: <Widget>[
@@ -313,7 +314,7 @@ Footer(BuildContext context, bool fullScreenMode) {
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     const Text(
                       'Bağlantılar',
@@ -348,7 +349,7 @@ Footer(BuildContext context, bool fullScreenMode) {
                 //
 
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     const Text(
                       'Hizmetler',
@@ -413,7 +414,7 @@ Footer(BuildContext context, bool fullScreenMode) {
                 ),
 
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     const Text(
                       'Hizmetler',
@@ -423,6 +424,7 @@ Footer(BuildContext context, bool fullScreenMode) {
                       height: 20,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         const Icon(
                           Icons.phone,
@@ -433,7 +435,7 @@ Footer(BuildContext context, bool fullScreenMode) {
                           width: 20,
                         ),
                         Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             const Padding(
                               padding: EdgeInsets.only(top: 6.0),
@@ -461,6 +463,7 @@ Footer(BuildContext context, bool fullScreenMode) {
                       height: 20,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         const Icon(
                           FontAwesomeIcons.clock,
@@ -471,7 +474,7 @@ Footer(BuildContext context, bool fullScreenMode) {
                           width: 20,
                         ),
                         Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             const Padding(
                               padding: EdgeInsets.only(top: 6.0),
@@ -499,6 +502,7 @@ Footer(BuildContext context, bool fullScreenMode) {
                       height: 20,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         const Icon(
                           FontAwesomeIcons.locationPin,
@@ -509,7 +513,7 @@ Footer(BuildContext context, bool fullScreenMode) {
                           width: 20,
                         ),
                         Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             const Padding(
                               padding: EdgeInsets.only(top: 6.0),

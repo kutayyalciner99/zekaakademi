@@ -17,6 +17,7 @@ dependencies:
   url_launcher: ^6.1.10
   flutter_translate: ^4.0.3
   carousel_slider: ^4.2.1
+  auto_size_text: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -31,6 +32,7 @@ flutter:
 
   assets:
     - assets/
+    - assets/teachers/
 
   fonts: 
     - family: Poppins
