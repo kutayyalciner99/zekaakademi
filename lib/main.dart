@@ -25,6 +25,7 @@ import 'package:zekaakademi/pages/program/davranis.dart';
 import 'package:zekaakademi/pages/program/disgrafya.dart';
 import 'package:zekaakademi/pages/program/duyu.dart';
 import 'package:zekaakademi/pages/program/oyun_terapisi.dart';
+import 'package:zekaakademi/pages/program/test.dart';
 
 import 'components/carousel_list2.dart';
 import 'pages/program/dyslexia.dart';
@@ -53,7 +54,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(),
+      home: Test(),
     );
   }
 }
