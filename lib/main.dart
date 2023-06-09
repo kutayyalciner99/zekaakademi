@@ -11,7 +11,6 @@ import 'package:zekaakademi/components/CustomCard.dart';
 import 'package:zekaakademi/components/CustomCard2.dart';
 import 'package:zekaakademi/components/SocialIcon.dart';
 import 'package:zekaakademi/components/carousel_list.dart';
-import 'package:zekaakademi/components/flags.dart';
 import 'package:zekaakademi/components/footer.dart';
 import 'package:zekaakademi/pages/autism_spectrum.dart';
 import 'package:zekaakademi/pages/contact_us.dart';
@@ -25,7 +24,6 @@ import 'package:zekaakademi/pages/program/davranis.dart';
 import 'package:zekaakademi/pages/program/disgrafya.dart';
 import 'package:zekaakademi/pages/program/duyu.dart';
 import 'package:zekaakademi/pages/program/oyun_terapisi.dart';
-import 'package:zekaakademi/pages/program/test.dart';
 
 import 'components/carousel_list2.dart';
 import 'pages/program/dyslexia.dart';
@@ -54,7 +52,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: Test(),
+      home: const MyHomePage(),
     );
   }
 }
@@ -535,7 +533,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     toolTip: 'Test Seçenekleri',
                                     items: [
                                       fullscreenPopup(
-                                        'Otizm Spekturum Bozukluğu',
+                                        'Otizm Spektrum Bozukluğu',
                                         () {
                                           setState(() {
                                             pageIndex = 13;
@@ -617,30 +615,105 @@ class _MyHomePageState extends State<MyHomePage> {
                                     popUpExpansion(
                                         'Hizmet Alanlarımız', () {}, [
                                       popUpExpansionItem(
-                                          'Zihinsel Yetersizlikler', () {}),
+                                          'Dikkat Eksikliği ve\nHiperaktivite Bozukluğu',
+                                          () {
+                                        setState(() {
+                                          pageIndex = 2;
+                                          Navigator.pop(context);
+                                        });
+                                      }),
                                       popUpExpansionItem(
-                                          'Dil ve Konuşma Güçlükleri', () {}),
+                                          'Zihinsel Yetersizlikler', () {
+                                        setState(() {
+                                          pageIndex = 3;
+                                          Navigator.pop(context);
+                                        });
+                                      }),
                                       popUpExpansionItem(
-                                          'Okula Destek ve Hazırlık', () {}),
+                                          'Dil ve Konuşma Güçlükleri', () {
+                                        setState(() {
+                                          pageIndex = 4;
+                                          Navigator.pop(context);
+                                        });
+                                      }),
                                       popUpExpansionItem(
-                                          'Özel Öğrenme Güçlüğü', () {})
+                                          'Okula Destek ve Hazırlık', () {
+                                        setState(() {
+                                          pageIndex = 5;
+                                          Navigator.pop(context);
+                                        });
+                                      }),
+                                      popUpExpansionItem('Özel Öğrenme Güçlüğü',
+                                          () {
+                                        setState(() {
+                                          pageIndex = 6;
+                                          Navigator.pop(context);
+                                        });
+                                      })
                                     ]),
                                     popUpExpansion('Programlarımız', () {}, [
                                       popUpExpansionItem(
                                           'Uygulamalı Davranış Analizi (UDA) - Applied Behavioral Analysis (ABA)',
-                                          () {}),
+                                          () {
+                                        setState(() {
+                                          pageIndex = 7;
+                                          Navigator.pop(context);
+                                        });
+                                      }),
                                       popUpExpansionItem(
                                           'Otistik Çocuklar için Davranışsal Eğitim Program: (OGIDEP)',
-                                          () {}),
+                                          () {
+                                        setState(() {
+                                          pageIndex = 8;
+                                          Navigator.pop(context);
+                                        });
+                                      }),
                                       popUpExpansionItem(
-                                          'Oyun Terapisi', () {}),
+                                          'Duyu Bütünleme Terapisi', () {
+                                        setState(() {
+                                          pageIndex = 9;
+                                          Navigator.pop(context);
+                                        });
+                                      }),
+                                      popUpExpansionItem('Oyun Terapisi', () {
+                                        setState(() {
+                                          pageIndex = 10;
+                                          Navigator.pop(context);
+                                        });
+                                      }),
                                       popUpExpansionItem(
                                           'Disleksi Müdahale Programı (DMP)',
-                                          () {})
+                                          () {
+                                        setState(() {
+                                          pageIndex = 11;
+                                          Navigator.pop(context);
+                                        });
+                                      }),
+                                      popUpExpansionItem(
+                                          'Disgrafya Müdahale Programı', () {
+                                        setState(() {
+                                          pageIndex = 12;
+                                          Navigator.pop(context);
+                                        });
+                                      })
                                     ]),
-                                    popUpExpansion('Testler', () {}, []),
+                                    popUpExpansion('Testler', () {}, [
+                                      popUpExpansionItem(
+                                          'Otizm Spektrum Bozukluğu', () {
+                                        setState(() {
+                                          pageIndex = 13;
+                                          Navigator.pop(context);
+                                        });
+                                      })
+                                    ]),
                                     popUpItem('Bize Ulaşın', () {
-                                      setState(() {});
+                                      setState(() {
+                                        setState(() {
+                                          pageIndex = 14;
+
+                                          Navigator.pop(context);
+                                        });
+                                      });
                                     })
                                   ];
                                 },
@@ -656,17 +729,16 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 50,
                     ),
                     _buildSelectedWidget(),
-                    Footer(context, screenModeModerate ? true : false)
                   ]),
                 )
               ]),
         ),
-        const Align(
-            alignment: Alignment.bottomLeft,
-            child: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Flags(),
-            )),
+        // const Align(
+        //     alignment: Alignment.bottomLeft,
+        //     child: Padding(
+        //       padding: EdgeInsets.all(8.0),
+        //       child: Flags(),
+        //     )),
       ],
     );
   }
@@ -1313,7 +1385,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     runSpacing: 10,
                     children: <Widget>[
                       CustomCard2(
-                          'OTİZM SPEKTURUM BOZUKLUĞU OLAN ÇOCUĞUMLA NASIL OYUN OYNAMALIYIM',
+                          'OTİZM SPEKTRUM BOZUKLUĞU OLAN ÇOCUĞUMLA NASIL OYUN OYNAMALIYIM',
                           'Blog yazımızın tamamın okumak için aşağıdaki butona tıklayınız.',
                           'assets/bottom_card4.png',
                           screenModeModerate),
@@ -1339,6 +1411,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           screenModeModerate),
                     ],
                   )),
+              Footer(context, screenModeModerate ? true : false)
             ]),
           ],
         );
@@ -1449,7 +1522,8 @@ Padding customRow(String input, bool screenMode) {
         ),
         Text(
           input,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          style: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: screenMode ? 18 : 16),
         )
       ],
     ),

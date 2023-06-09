@@ -16,6 +16,7 @@ class PageOpenning extends StatelessWidget {
             child: Text(
           text,
           style: const TextStyle(color: Colors.white, fontSize: 44),
+          textAlign: TextAlign.center,
         )));
   }
 }

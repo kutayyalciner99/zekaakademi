@@ -22,7 +22,7 @@ Footer(BuildContext context, bool fullScreenMode) {
                       scale: 4,
                     ),
                     const Text(
-                      'Özel eğitim merkezi olmanın derin sorumluluğu ve bilinci\nile tüm öğretmenlerimizin ve ebeveynlerimizin\naktif katılımına dayanan bilimsel\neğitim anlayışımız ile çocuklarımıza\nnitelikli ve kaliteli eğitim sunmaktayız',
+                      'Özel eğitim merkezi olmanın derin sorumluluğu ve bilinci ile tüm öğretmenlerimizin ve ebeveynlerimizin\naktif katılımına dayanan bilimsel\neğitim anlayışımız ile çocuklarımıza\nnitelikli ve kaliteli eğitim sunmaktayız',
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
                     const SizedBox(
@@ -281,11 +281,12 @@ Footer(BuildContext context, bool fullScreenMode) {
                       scale: 4,
                     ),
                     const Text(
-                      'Özel eğitim merkezi olmanın derin sorumluluğu ve bilinci\nile tüm öğretmenlerimizin ve ebeveynlerimizin\naktif katılımına dayanan bilimsel\neğitim anlayışımız ile çocuklarımıza\nnitelikli ve kaliteli eğitim sunmaktayız',
+                      'Özel eğitim merkezi olmanın derin sorumluluğu ve bilinci ile tüm öğretmenlerimizin ve ebeveynlerimizin\naktif katılımına dayanan bilimsel\neğitim anlayışımız ile çocuklarımıza\nnitelikli ve kaliteli eğitim sunmaktayız',
                       style: TextStyle(color: Colors.white),
+                      textAlign: TextAlign.center,
                     ),
                     const SizedBox(
-                      height: 40,
+                      height: 20,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -294,14 +295,20 @@ Footer(BuildContext context, bool fullScreenMode) {
                           children: <Widget>[
                             const Text(
                               'Özel Eğitim Uzmanı\nGizem Ulu Özkaraca',
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.bold),
                             ),
                             const SizedBox(
                               height: 20,
                             ),
                             const Text(
                               'Yönetici & Kurucu',
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
