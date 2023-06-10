@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-Footer(BuildContext context, bool fullScreenMode) {
+Footer(BuildContext context, bool fullScreenMode, Function(int) onPageChanged) {
   return Container(
     color: const Color(0xFF091E3E),
     height: fullScreenMode ? 600 : 1300,
@@ -28,19 +28,19 @@ Footer(BuildContext context, bool fullScreenMode) {
                     const SizedBox(
                       height: 40,
                     ),
-                    Row(
+                    const Row(
                       children: <Widget>[
                         Column(
                           children: <Widget>[
-                            const Text(
+                            Text(
                               'Özel Eğitim Uzmanı\nGizem Ulu Özkaraca',
                               style:
                                   TextStyle(color: Colors.white, fontSize: 20),
                             ),
-                            const SizedBox(
+                            SizedBox(
                               height: 20,
                             ),
-                            const Text(
+                            Text(
                               'Yönetici & Kurucu',
                               style: TextStyle(
                                   color: Colors.white,
@@ -64,7 +64,9 @@ Footer(BuildContext context, bool fullScreenMode) {
                       height: 20,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        onPageChanged(1);
+                      },
                       child: const Text(
                         'Hakkımızda',
                         style: TextStyle(color: Colors.white, fontSize: 18),
@@ -74,7 +76,9 @@ Footer(BuildContext context, bool fullScreenMode) {
                       height: 10,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        onPageChanged(14);
+                      },
                       child: const Text(
                         'Bize Ulaşın',
                         style: TextStyle(color: Colors.white, fontSize: 18),
@@ -93,7 +97,9 @@ Footer(BuildContext context, bool fullScreenMode) {
                       height: 20,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        onPageChanged(2);
+                      },
                       child: const Text(
                         'Dikkat Eksikliği ve Hiperaktivite\nBozukluğu',
                         style: TextStyle(color: Colors.white, fontSize: 18),
@@ -103,7 +109,9 @@ Footer(BuildContext context, bool fullScreenMode) {
                       height: 10,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        onPageChanged(3);
+                      },
                       child: const Text(
                         'Zihinsel Yetersizlikler',
                         style: TextStyle(color: Colors.white, fontSize: 18),
@@ -113,7 +121,9 @@ Footer(BuildContext context, bool fullScreenMode) {
                       height: 10,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        onPageChanged(4);
+                      },
                       child: const Text(
                         'Dil ve Konuşma Güçlükleri',
                         style: TextStyle(color: Colors.white, fontSize: 18),
@@ -123,7 +133,9 @@ Footer(BuildContext context, bool fullScreenMode) {
                       height: 10,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        onPageChanged(5);
+                      },
                       child: const Text(
                         'Okula Destek ve Hazırlık',
                         style: TextStyle(color: Colors.white, fontSize: 18),
@@ -133,7 +145,9 @@ Footer(BuildContext context, bool fullScreenMode) {
                       height: 10,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        onPageChanged(6);
+                      },
                       child: const Text(
                         'Özel Öğrenme Güçlüğü',
                         style: TextStyle(color: Colors.white, fontSize: 18),
@@ -141,30 +155,30 @@ Footer(BuildContext context, bool fullScreenMode) {
                     )
                   ],
                 ),
-                Column(
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    const Text(
+                    Text(
                       'Hizmetler',
                       style: TextStyle(color: Colors.white, fontSize: 24),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 20,
                     ),
                     Row(
                       children: <Widget>[
-                        const Icon(
+                        Icon(
                           Icons.phone,
                           color: Colors.blue,
                           size: 32,
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 20,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Padding(
+                            Padding(
                               padding: EdgeInsets.only(top: 6.0),
                               child: Text(
                                 'Telefon Numarası',
@@ -172,7 +186,7 @@ Footer(BuildContext context, bool fullScreenMode) {
                                     fontFamily: 'Poppins', color: Colors.white),
                               ),
                             ),
-                            const Padding(
+                            Padding(
                               padding: EdgeInsets.only(top: 4.0),
                               child: Text(
                                 '0 553 627 34 10',
@@ -186,23 +200,23 @@ Footer(BuildContext context, bool fullScreenMode) {
                         )
                       ],
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 20,
                     ),
                     Row(
                       children: <Widget>[
-                        const Icon(
+                        Icon(
                           FontAwesomeIcons.clock,
                           color: Colors.blue,
                           size: 32,
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 20,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Padding(
+                            Padding(
                               padding: EdgeInsets.only(top: 6.0),
                               child: Text(
                                 'Çalışma Saatleri',
@@ -210,7 +224,7 @@ Footer(BuildContext context, bool fullScreenMode) {
                                     fontFamily: 'Poppins', color: Colors.white),
                               ),
                             ),
-                            const Padding(
+                            Padding(
                               padding: EdgeInsets.only(top: 4.0),
                               child: Text(
                                 '10:00 - 18:40',
@@ -224,23 +238,23 @@ Footer(BuildContext context, bool fullScreenMode) {
                         )
                       ],
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 20,
                     ),
                     Row(
                       children: <Widget>[
-                        const Icon(
+                        Icon(
                           FontAwesomeIcons.locationPin,
                           color: Colors.blue,
                           size: 32,
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 20,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Padding(
+                            Padding(
                               padding: EdgeInsets.only(top: 6.0),
                               child: Text(
                                 'Açık Adres',
@@ -248,7 +262,7 @@ Footer(BuildContext context, bool fullScreenMode) {
                                     fontFamily: 'Poppins', color: Colors.white),
                               ),
                             ),
-                            const Padding(
+                            Padding(
                               padding: EdgeInsets.only(top: 4.0),
                               child: Text(
                                 'Ataşehir/İstanbul',
@@ -288,22 +302,22 @@ Footer(BuildContext context, bool fullScreenMode) {
                     const SizedBox(
                       height: 20,
                     ),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Column(
                           children: <Widget>[
-                            const Text(
+                            Text(
                               'Özel Eğitim Uzmanı\nGizem Ulu Özkaraca',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 19,
                                   fontWeight: FontWeight.bold),
                             ),
-                            const SizedBox(
+                            SizedBox(
                               height: 20,
                             ),
-                            const Text(
+                            Text(
                               'Yönetici & Kurucu',
                               style: TextStyle(
                                   color: Colors.white,
@@ -331,7 +345,9 @@ Footer(BuildContext context, bool fullScreenMode) {
                       height: 20,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        onPageChanged(1);
+                      },
                       child: const Text(
                         'Hakkımızda',
                         style: TextStyle(color: Colors.white, fontSize: 18),
@@ -341,7 +357,9 @@ Footer(BuildContext context, bool fullScreenMode) {
                       height: 10,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        onPageChanged(14);
+                      },
                       child: const Text(
                         'Bize Ulaşın',
                         style: TextStyle(color: Colors.white, fontSize: 18),
@@ -366,7 +384,9 @@ Footer(BuildContext context, bool fullScreenMode) {
                       height: 20,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        onPageChanged(2);
+                      },
                       child: const Text(
                         'Dikkat Eksikliği ve Hiperaktivite\nBozukluğu',
                         style: TextStyle(color: Colors.white, fontSize: 18),
@@ -376,7 +396,9 @@ Footer(BuildContext context, bool fullScreenMode) {
                       height: 10,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        onPageChanged(3);
+                      },
                       child: const Text(
                         'Zihinsel Yetersizlikler',
                         style: TextStyle(color: Colors.white, fontSize: 18),
@@ -386,7 +408,9 @@ Footer(BuildContext context, bool fullScreenMode) {
                       height: 10,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        onPageChanged(4);
+                      },
                       child: const Text(
                         'Dil ve Konuşma Güçlükleri',
                         style: TextStyle(color: Colors.white, fontSize: 18),
@@ -396,7 +420,9 @@ Footer(BuildContext context, bool fullScreenMode) {
                       height: 10,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        onPageChanged(5);
+                      },
                       child: const Text(
                         'Okula Destek ve Hazırlık',
                         style: TextStyle(color: Colors.white, fontSize: 18),
@@ -406,7 +432,9 @@ Footer(BuildContext context, bool fullScreenMode) {
                       height: 10,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        onPageChanged(6);
+                      },
                       child: const Text(
                         'Özel Öğrenme Güçlüğü',
                         style: TextStyle(color: Colors.white, fontSize: 18),
@@ -420,31 +448,31 @@ Footer(BuildContext context, bool fullScreenMode) {
                   height: 20,
                 ),
 
-                Column(
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    const Text(
+                    Text(
                       'Hizmetler',
                       style: TextStyle(color: Colors.white, fontSize: 24),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 20,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        const Icon(
+                        Icon(
                           Icons.phone,
                           color: Colors.blue,
                           size: 32,
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 20,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            const Padding(
+                            Padding(
                               padding: EdgeInsets.only(top: 6.0),
                               child: Text(
                                 'Telefon Numarası',
@@ -452,7 +480,7 @@ Footer(BuildContext context, bool fullScreenMode) {
                                     fontFamily: 'Poppins', color: Colors.white),
                               ),
                             ),
-                            const Padding(
+                            Padding(
                               padding: EdgeInsets.only(top: 4.0),
                               child: Text(
                                 '0 553 627 34 10',
@@ -466,24 +494,24 @@ Footer(BuildContext context, bool fullScreenMode) {
                         )
                       ],
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 20,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        const Icon(
+                        Icon(
                           FontAwesomeIcons.clock,
                           color: Colors.blue,
                           size: 32,
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 20,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            const Padding(
+                            Padding(
                               padding: EdgeInsets.only(top: 6.0),
                               child: Text(
                                 'Çalışma Saatleri',
@@ -491,7 +519,7 @@ Footer(BuildContext context, bool fullScreenMode) {
                                     fontFamily: 'Poppins', color: Colors.white),
                               ),
                             ),
-                            const Padding(
+                            Padding(
                               padding: EdgeInsets.only(top: 4.0),
                               child: Text(
                                 '10:00 - 18:40',
@@ -505,24 +533,24 @@ Footer(BuildContext context, bool fullScreenMode) {
                         )
                       ],
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 20,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        const Icon(
+                        Icon(
                           FontAwesomeIcons.locationPin,
                           color: Colors.blue,
                           size: 32,
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 20,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            const Padding(
+                            Padding(
                               padding: EdgeInsets.only(top: 6.0),
                               child: Text(
                                 'Açık Adres',
@@ -530,7 +558,7 @@ Footer(BuildContext context, bool fullScreenMode) {
                                     fontFamily: 'Poppins', color: Colors.white),
                               ),
                             ),
-                            const Padding(
+                            Padding(
                               padding: EdgeInsets.only(top: 4.0),
                               child: Text(
                                 'Ataşehir/İstanbul',

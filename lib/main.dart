@@ -72,6 +72,19 @@ class _MyHomePageState extends State<MyHomePage> {
   int _currentCarouselIndex = 0;
   int _currentCarouselIndex2 = 0;
   int pageIndex = 0;
+  ScrollController scrollController = ScrollController();
+
+  void changePage(int index) {
+    setState(() {
+      pageIndex = index;
+    });
+
+    scrollController.animateTo(
+      0,
+      duration: const Duration(milliseconds: 900),
+      curve: Curves.ease,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,209 +104,139 @@ class _MyHomePageState extends State<MyHomePage> {
                 await launchUrl(Uri.parse(
                     'https://api.whatsapp.com/send/?phone=905536273410&text=Merhabalar.&type=phone_number&app_absent=0'));
               }),
-          body: CustomScrollView(
-              physics: const RangeMaintainingScrollPhysics(),
-              slivers: [
-                SliverAppBar(
-                  centerTitle: true,
-                  toolbarHeight: screenModeFullScreen ? 100 : 170,
-                  elevation: 0,
-                  floating: false,
-                  snap: false,
-                  backgroundColor: Colors.grey.withOpacity(0.1),
-                  title: Column(
-                    children: <Widget>[
+          body: Scrollbar(
+            thumbVisibility: true,
+            controller: scrollController,
+            child: CustomScrollView(
+                controller: scrollController,
+                physics: const RangeMaintainingScrollPhysics(),
+                slivers: [
+                  SliverAppBar(
+                    centerTitle: true,
+                    toolbarHeight: screenModeFullScreen ? 100 : 170,
+                    elevation: 0,
+                    floating: false,
+                    snap: false,
+                    backgroundColor: Colors.grey.withOpacity(0.1),
+                    title: Column(
+                      children: <Widget>[
+                        screenModeFullScreen
+                            ? Row(
+                                children: <Widget>[
+                                  const SizedBox(
+                                    width: 100,
+                                  ),
+                                  Flexible(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          FontAwesomeIcons.locationDot,
+                                          color: Colors.blue.shade500,
+                                        ),
+                                        const SizedBox(width: 10),
+                                        const Expanded(
+                                          child: Text(
+                                            'Ataşehir/İstanbul',
+                                            style:
+                                                TextStyle(color: Colors.black),
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Flexible(
+                                    flex: 3,
+                                    child: Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          FontAwesomeIcons.envelope,
+                                          color: Colors.blue.shade500,
+                                        ),
+                                        const SizedBox(width: 10),
+                                        const Expanded(
+                                          child: Text(
+                                            'zekaakademiozelegitim@gmail.com',
+                                            style:
+                                                TextStyle(color: Colors.black),
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  if (screenModeFullScreen) const SocialIcon(),
+                                  const SizedBox(
+                                    width: 100,
+                                  )
+                                ],
+                              )
+                            : Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: <Widget>[
+                                        Icon(
+                                          FontAwesomeIcons.locationDot,
+                                          color: Colors.blue.shade500,
+                                        ),
+                                        const SizedBox(width: 10),
+                                        const Expanded(
+                                          child: Text(
+                                            'Ataşehir/İstanbul',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: Colors.black),
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const Padding(
+                                        padding: EdgeInsets.only(top: 10)),
+                                    Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          FontAwesomeIcons.envelope,
+                                          color: Colors.blue.shade500,
+                                        ),
+                                        const SizedBox(width: 10),
+                                        const Expanded(
+                                          child: Text(
+                                            'zekaakademiozelegitim@gmail.com',
+                                            style:
+                                                TextStyle(color: Colors.black),
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ]),
+                        if (MediaQuery.of(context).size.width <= 768)
+                          const SizedBox(height: 10),
+                        if (MediaQuery.of(context).size.width <= 768)
+                          const SocialIcon(),
+                      ],
+                    ),
+                  ),
+                  SliverList(
+                    delegate: SliverChildListDelegate([
                       screenModeFullScreen
                           ? Row(
                               children: <Widget>[
-                                const SizedBox(
-                                  width: 100,
+                                const Spacer(),
+                                Image.asset(
+                                  'assets/zeka_logo.png',
+                                  scale: 4,
                                 ),
-                                Flexible(
-                                  child: Row(
-                                    children: <Widget>[
-                                      Icon(
-                                        FontAwesomeIcons.locationDot,
-                                        color: Colors.blue.shade500,
-                                      ),
-                                      const SizedBox(width: 10),
-                                      const Expanded(
-                                        child: Text(
-                                          'Ataşehir/İstanbul',
-                                          style: TextStyle(color: Colors.black),
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Flexible(
+                                const Spacer(
                                   flex: 3,
-                                  child: Row(
-                                    children: <Widget>[
-                                      Icon(
-                                        FontAwesomeIcons.envelope,
-                                        color: Colors.blue.shade500,
-                                      ),
-                                      const SizedBox(width: 10),
-                                      const Expanded(
-                                        child: Text(
-                                          'zekaakademiozelegitim@gmail.com',
-                                          style: TextStyle(color: Colors.black),
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
                                 ),
-                                if (screenModeFullScreen) const SocialIcon(),
-                                const SizedBox(
-                                  width: 100,
-                                )
-                              ],
-                            )
-                          : Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Icon(
-                                        FontAwesomeIcons.locationDot,
-                                        color: Colors.blue.shade500,
-                                      ),
-                                      const SizedBox(width: 10),
-                                      const Expanded(
-                                        child: Text(
-                                          'Ataşehir/İstanbul',
-                                          style: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.black),
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const Padding(
-                                      padding: EdgeInsets.only(top: 10)),
-                                  Row(
-                                    children: <Widget>[
-                                      Icon(
-                                        FontAwesomeIcons.envelope,
-                                        color: Colors.blue.shade500,
-                                      ),
-                                      const SizedBox(width: 10),
-                                      const Expanded(
-                                        child: Text(
-                                          'zekaakademiozelegitim@gmail.com',
-                                          style: TextStyle(color: Colors.black),
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ]),
-                      if (MediaQuery.of(context).size.width <= 768)
-                        const SizedBox(height: 10),
-                      if (MediaQuery.of(context).size.width <= 768)
-                        const SocialIcon(),
-                    ],
-                  ),
-                ),
-                SliverList(
-                  delegate: SliverChildListDelegate([
-                    screenModeFullScreen
-                        ? Row(
-                            children: <Widget>[
-                              const Spacer(),
-                              Image.asset(
-                                'assets/zeka_logo.png',
-                                scale: 4,
-                              ),
-                              const Spacer(
-                                flex: 3,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(26.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    launch('tel:+905536273410');
-                                  },
-                                  child: Column(
-                                    children: <Widget>[
-                                      const Icon(
-                                        Icons.phone,
-                                        color: Colors.blue,
-                                        size: 32,
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 6.0),
-                                        child: Text(
-                                          'Hemen Arayın',
-                                          style: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.black
-                                                  .withOpacity(0.6)),
-                                        ),
-                                      ),
-                                      const Padding(
-                                        padding: EdgeInsets.only(top: 4.0),
-                                        child: Text(
-                                          '0 553 627 34 10',
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Column(
-                                children: <Widget>[
-                                  const Icon(
-                                    FontAwesomeIcons.clock,
-                                    color: Colors.blue,
-                                    size: 32,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 6.0),
-                                    child: Text(
-                                      'Çalışma Saatleri',
-                                      style: TextStyle(
-                                          color: Colors.black.withOpacity(0.6)),
-                                    ),
-                                  ),
-                                  const Padding(
-                                    padding: EdgeInsets.only(top: 4.0),
-                                    child: Text(
-                                      '10:00 - 18:40',
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const Spacer(),
-                            ],
-                          )
-                        : Column(
-                            children: <Widget>[
-                              Image.asset(
-                                'assets/zeka_logo.png',
-                                scale: 4,
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  GestureDetector(
+                                Padding(
+                                  padding: const EdgeInsets.all(26.0),
+                                  child: InkWell(
                                     onTap: () {
                                       launch('tel:+905536273410');
                                     },
@@ -328,410 +271,490 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ],
                                     ),
                                   ),
-                                  const SizedBox(
-                                    width: 20,
-                                  ),
-                                  Column(
-                                    children: <Widget>[
-                                      const Icon(
-                                        FontAwesomeIcons.clock,
-                                        color: Colors.blue,
-                                        size: 32,
+                                ),
+                                Column(
+                                  children: <Widget>[
+                                    const Icon(
+                                      FontAwesomeIcons.clock,
+                                      color: Colors.blue,
+                                      size: 32,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 6.0),
+                                      child: Text(
+                                        'Çalışma Saatleri',
+                                        style: TextStyle(
+                                            color:
+                                                Colors.black.withOpacity(0.6)),
                                       ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 6.0),
-                                        child: Text(
-                                          'Çalışma Saatleri',
-                                          style: TextStyle(
-                                              color: Colors.black
-                                                  .withOpacity(0.6)),
-                                        ),
+                                    ),
+                                    const Padding(
+                                      padding: EdgeInsets.only(top: 4.0),
+                                      child: Text(
+                                        '10:00 - 18:40',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold),
                                       ),
-                                      const Padding(
-                                        padding: EdgeInsets.only(top: 4.0),
-                                        child: Text(
-                                          '10:00 - 18:40',
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold),
+                                    )
+                                  ],
+                                ),
+                                const Spacer(),
+                              ],
+                            )
+                          : Column(
+                              children: <Widget>[
+                                Image.asset(
+                                  'assets/zeka_logo.png',
+                                  scale: 4,
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    GestureDetector(
+                                      onTap: () {
+                                        launch('tel:+905536273410');
+                                      },
+                                      child: Column(
+                                        children: <Widget>[
+                                          const Icon(
+                                            Icons.phone,
+                                            color: Colors.blue,
+                                            size: 32,
+                                          ),
+                                          Padding(
+                                            padding:
+                                                const EdgeInsets.only(top: 6.0),
+                                            child: Text(
+                                              'Hemen Arayın',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  color: Colors.black
+                                                      .withOpacity(0.6)),
+                                            ),
+                                          ),
+                                          const Padding(
+                                            padding: EdgeInsets.only(top: 4.0),
+                                            child: Text(
+                                              '0 553 627 34 10',
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      width: 20,
+                                    ),
+                                    Column(
+                                      children: <Widget>[
+                                        const Icon(
+                                          FontAwesomeIcons.clock,
+                                          color: Colors.blue,
+                                          size: 32,
                                         ),
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    screenModeFullScreen
-                        ? Container()
-                        : Container(
-                            color: Colors.grey.shade200,
-                            width: double.maxFinite,
-                            height: 1,
-                          ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(top: 6.0),
+                                          child: Text(
+                                            'Çalışma Saatleri',
+                                            style: TextStyle(
+                                                color: Colors.black
+                                                    .withOpacity(0.6)),
+                                          ),
+                                        ),
+                                        const Padding(
+                                          padding: EdgeInsets.only(top: 4.0),
+                                          child: Text(
+                                            '10:00 - 18:40',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      screenModeFullScreen
+                          ? Container()
+                          : Container(
+                              color: Colors.grey.shade200,
+                              width: double.maxFinite,
+                              height: 1,
+                            ),
 
-                    //navbar
-                    screenModeFullScreen
-                        ? Container(
-                            height: 130,
-                            color: Colors.grey.withOpacity(0.1),
-                            child: Padding(
-                              padding: const EdgeInsets.all(12.0),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  const Spacer(
-                                    flex: 2,
+                      //navbar
+                      screenModeFullScreen
+                          ? Container(
+                              height: 130,
+                              color: Colors.grey.withOpacity(0.1),
+                              child: Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[
+                                    const Spacer(
+                                      flex: 2,
+                                    ),
+                                    TextButton1(
+                                      text: 'Ana Sayfa',
+                                      toolTip: '',
+                                      items: [],
+                                      onPressed: () {
+                                        setState(() {
+                                          pageIndex = 0;
+                                        });
+                                      },
+                                    ),
+                                    const Spacer(),
+                                    TextButton1(
+                                      text: 'Kurumsal',
+                                      toolTip: 'Kurumsal Seçenekleri',
+                                      items: [
+                                        fullscreenPopup(
+                                          'Hakkımızda',
+                                          () {
+                                            setState(() {
+                                              pageIndex = 1;
+                                              Navigator.pop(context);
+                                            });
+                                          },
+                                        )
+                                      ],
+                                    ),
+                                    const Spacer(),
+                                    TextButton1(
+                                      text: 'Hizmet Alanlarımız',
+                                      toolTip: 'Hizmet Seçenekleri',
+                                      items: [
+                                        fullscreenPopup(
+                                          'Dikkat Eksikliği ve Hiperaktivite Bozukluğu',
+                                          () {
+                                            setState(() {
+                                              pageIndex = 2;
+                                              Navigator.pop(context);
+                                            });
+                                          },
+                                        ),
+                                        fullscreenPopup(
+                                          'Zihinsel Yetersizlikler',
+                                          () {
+                                            setState(() {
+                                              pageIndex = 3;
+                                              Navigator.pop(context);
+                                            });
+                                          },
+                                        ),
+                                        fullscreenPopup(
+                                          'Dil ve Konuşma Güçlükleri',
+                                          () {
+                                            setState(() {
+                                              pageIndex = 4;
+                                              Navigator.pop(context);
+                                            });
+                                          },
+                                        ),
+                                        fullscreenPopup(
+                                          'Okula Destek ve Hazırlık',
+                                          () {
+                                            setState(() {
+                                              pageIndex = 5;
+                                              Navigator.pop(context);
+                                            });
+                                          },
+                                        ),
+                                        fullscreenPopup(
+                                          'Özel Öğrenme Güçlüğü',
+                                          () {
+                                            setState(() {
+                                              pageIndex = 6;
+                                              Navigator.pop(context);
+                                            });
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    const Spacer(),
+                                    TextButton1(
+                                      toolTip: 'Programlarımız Seçenekleri',
+                                      text: 'Programlarımız',
+                                      items: [
+                                        fullscreenPopup(
+                                          'Uygulamalı Davranış Analizi (UDA)\nApplied Behavioral Analysis (ABA)',
+                                          () {
+                                            setState(() {
+                                              pageIndex = 7;
+                                              Navigator.pop(context);
+                                            });
+                                          },
+                                        ),
+                                        fullscreenPopup(
+                                          'Otistik Çocuklar için Davranışsal Eğitim Program: (OGIDEP)',
+                                          () {
+                                            setState(() {
+                                              pageIndex = 8;
+                                              Navigator.pop(context);
+                                            });
+                                          },
+                                        ),
+                                        fullscreenPopup(
+                                          'Duyu Bütünleme Terapisi',
+                                          () {
+                                            setState(() {
+                                              pageIndex = 9;
+                                              Navigator.pop(context);
+                                            });
+                                          },
+                                        ),
+                                        fullscreenPopup(
+                                          'Oyun Terapisi',
+                                          () {
+                                            setState(() {
+                                              pageIndex = 10;
+                                              Navigator.pop(context);
+                                            });
+                                          },
+                                        ),
+                                        fullscreenPopup(
+                                          'Disleksi Müdahale Programı (DMP)',
+                                          () {
+                                            setState(() {
+                                              pageIndex = 11;
+                                              Navigator.pop(context);
+                                            });
+                                          },
+                                        ),
+                                        fullscreenPopup(
+                                          'Disgrafya Müdahale Programı',
+                                          () {
+                                            setState(() {
+                                              pageIndex = 12;
+                                              Navigator.pop(context);
+                                            });
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    const Spacer(),
+                                    TextButton1(
+                                      text: 'Testler',
+                                      toolTip: 'Test Seçenekleri',
+                                      items: [
+                                        fullscreenPopup(
+                                          'Otizm Spektrum Bozukluğu',
+                                          () {
+                                            setState(() {
+                                              pageIndex = 13;
+                                              Navigator.pop(context);
+                                            });
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    const Spacer(),
+                                    TextButton1(
+                                      toolTip: 'Bize Ulaşın',
+                                      text: 'Bize Ulaşın',
+                                      items: [],
+                                      onPressed: () {
+                                        setState(() {
+                                          pageIndex = 14;
+                                        });
+                                      },
+                                    ),
+                                    const Spacer(
+                                      flex: 2,
+                                    ),
+                                    screenModeModerate
+                                        ? ElevatedButton(
+                                            onPressed: () async {
+                                              await launchUrl(Uri.parse(
+                                                  'https://api.whatsapp.com/send/?phone=905536273410&text=Merhabalar.&type=phone_number&app_absent=0'));
+                                            },
+                                            child: const Padding(
+                                              padding: EdgeInsets.all(14.0),
+                                              child: Text(
+                                                'Ücretsiz Değerlendirme\n Seansı Oluştur',
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(fontSize: 18),
+                                              ),
+                                            ),
+                                          )
+                                        : const SizedBox.shrink(),
+                                    const Spacer(
+                                      flex: 2,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            )
+                          : Row(
+                              children: <Widget>[
+                                const Spacer(),
+                                Image.asset(
+                                  'assets/zeka_logo.png',
+                                  scale: 8,
+                                ),
+                                const Spacer(
+                                  flex: 5,
+                                ),
+                                PopupMenuButton(
+                                  splashRadius: 32,
+                                  tooltip: 'Göster',
+                                  child: const Icon(
+                                    Icons.menu,
+                                    size: 32,
                                   ),
-                                  TextButton1(
-                                    text: 'Ana Sayfa',
-                                    toolTip: '',
-                                    items: [],
-                                    onPressed: () {
-                                      setState(() {
-                                        pageIndex = 0;
-                                      });
-                                    },
-                                  ),
-                                  const Spacer(),
-                                  TextButton1(
-                                    text: 'Kurumsal',
-                                    toolTip: 'Kurumsal Seçenekleri',
-                                    items: [
-                                      fullscreenPopup(
-                                        'Hakkımızda',
-                                        () {
+                                  itemBuilder: (BuildContext context) {
+                                    return [
+                                      popUpItem('Ana Sayfa', () {
+                                        setState(() {
+                                          pageIndex = 0;
+                                        });
+                                      }),
+                                      popUpExpansion('Kurumsal', () {}, [
+                                        popUpExpansionItem('Hakkımızda', () {
                                           setState(() {
                                             pageIndex = 1;
                                             Navigator.pop(context);
                                           });
-                                        },
-                                      )
-                                    ],
-                                  ),
-                                  const Spacer(),
-                                  TextButton1(
-                                    text: 'Hizmet Alanlarımız',
-                                    toolTip: 'Hizmet Seçenekleri',
-                                    items: [
-                                      fullscreenPopup(
-                                        'Dikkat Eksikliği ve Hiperaktivite Bozukluğu',
-                                        () {
+                                        })
+                                      ]),
+                                      popUpExpansion(
+                                          'Hizmet Alanlarımız', () {}, [
+                                        popUpExpansionItem(
+                                            'Dikkat Eksikliği ve\nHiperaktivite Bozukluğu',
+                                            () {
                                           setState(() {
                                             pageIndex = 2;
                                             Navigator.pop(context);
                                           });
-                                        },
-                                      ),
-                                      fullscreenPopup(
-                                        'Zihinsel Yetersizlikler',
-                                        () {
+                                        }),
+                                        popUpExpansionItem(
+                                            'Zihinsel Yetersizlikler', () {
                                           setState(() {
                                             pageIndex = 3;
                                             Navigator.pop(context);
                                           });
-                                        },
-                                      ),
-                                      fullscreenPopup(
-                                        'Dil ve Konuşma Güçlükleri',
-                                        () {
+                                        }),
+                                        popUpExpansionItem(
+                                            'Dil ve Konuşma Güçlükleri', () {
                                           setState(() {
                                             pageIndex = 4;
                                             Navigator.pop(context);
                                           });
-                                        },
-                                      ),
-                                      fullscreenPopup(
-                                        'Okula Destek ve Hazırlık',
-                                        () {
+                                        }),
+                                        popUpExpansionItem(
+                                            'Okula Destek ve Hazırlık', () {
                                           setState(() {
                                             pageIndex = 5;
                                             Navigator.pop(context);
                                           });
-                                        },
-                                      ),
-                                      fullscreenPopup(
-                                        'Özel Öğrenme Güçlüğü',
-                                        () {
+                                        }),
+                                        popUpExpansionItem(
+                                            'Özel Öğrenme Güçlüğü', () {
                                           setState(() {
                                             pageIndex = 6;
                                             Navigator.pop(context);
                                           });
-                                        },
-                                      ),
-                                    ],
-                                  ),
-                                  const Spacer(),
-                                  TextButton1(
-                                    toolTip: 'Programlarımız Seçenekleri',
-                                    text: 'Programlarımız',
-                                    items: [
-                                      fullscreenPopup(
-                                        'Uygulamalı Davranış Analizi (UDA)\nApplied Behavioral Analysis (ABA)',
-                                        () {
+                                        })
+                                      ]),
+                                      popUpExpansion('Programlarımız', () {}, [
+                                        popUpExpansionItem(
+                                            'Uygulamalı Davranış Analizi (UDA) - Applied Behavioral Analysis (ABA)',
+                                            () {
                                           setState(() {
                                             pageIndex = 7;
                                             Navigator.pop(context);
                                           });
-                                        },
-                                      ),
-                                      fullscreenPopup(
-                                        'Otistik Çocuklar için Davranışsal Eğitim Program: (OGIDEP)',
-                                        () {
+                                        }),
+                                        popUpExpansionItem(
+                                            'Otistik Çocuklar için Davranışsal Eğitim Program: (OGIDEP)',
+                                            () {
                                           setState(() {
                                             pageIndex = 8;
                                             Navigator.pop(context);
                                           });
-                                        },
-                                      ),
-                                      fullscreenPopup(
-                                        'Duyu Bütünleme Terapisi',
-                                        () {
+                                        }),
+                                        popUpExpansionItem(
+                                            'Duyu Bütünleme Terapisi', () {
                                           setState(() {
                                             pageIndex = 9;
                                             Navigator.pop(context);
                                           });
-                                        },
-                                      ),
-                                      fullscreenPopup(
-                                        'Oyun Terapisi',
-                                        () {
+                                        }),
+                                        popUpExpansionItem('Oyun Terapisi', () {
                                           setState(() {
                                             pageIndex = 10;
                                             Navigator.pop(context);
                                           });
-                                        },
-                                      ),
-                                      fullscreenPopup(
-                                        'Disleksi Müdahale Programı (DMP)',
-                                        () {
+                                        }),
+                                        popUpExpansionItem(
+                                            'Disleksi Müdahale Programı (DMP)',
+                                            () {
                                           setState(() {
                                             pageIndex = 11;
                                             Navigator.pop(context);
                                           });
-                                        },
-                                      ),
-                                      fullscreenPopup(
-                                        'Disgrafya Müdahale Programı',
-                                        () {
+                                        }),
+                                        popUpExpansionItem(
+                                            'Disgrafya Müdahale Programı', () {
                                           setState(() {
                                             pageIndex = 12;
                                             Navigator.pop(context);
                                           });
-                                        },
-                                      ),
-                                    ],
-                                  ),
-                                  const Spacer(),
-                                  TextButton1(
-                                    text: 'Testler',
-                                    toolTip: 'Test Seçenekleri',
-                                    items: [
-                                      fullscreenPopup(
-                                        'Otizm Spektrum Bozukluğu',
-                                        () {
+                                        })
+                                      ]),
+                                      popUpExpansion('Testler', () {}, [
+                                        popUpExpansionItem(
+                                            'Otizm Spektrum Bozukluğu', () {
                                           setState(() {
                                             pageIndex = 13;
                                             Navigator.pop(context);
                                           });
-                                        },
-                                      ),
-                                    ],
-                                  ),
-                                  const Spacer(),
-                                  TextButton1(
-                                    toolTip: 'Bize Ulaşın',
-                                    text: 'Bize Ulaşın',
-                                    items: [],
-                                    onPressed: () {
-                                      setState(() {
-                                        pageIndex = 14;
-                                      });
-                                    },
-                                  ),
-                                  const Spacer(
-                                    flex: 2,
-                                  ),
-                                  screenModeModerate
-                                      ? ElevatedButton(
-                                          onPressed: () async {
-                                            await launchUrl(Uri.parse(
-                                                'https://api.whatsapp.com/send/?phone=905536273410&text=Merhabalar.&type=phone_number&app_absent=0'));
-                                          },
-                                          child: const Padding(
-                                            padding: EdgeInsets.all(14.0),
-                                            child: Text(
-                                              'Ücretsiz Değerlendirme\n Seansı Oluştur',
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(fontSize: 18),
-                                            ),
-                                          ),
-                                        )
-                                      : const SizedBox.shrink(),
-                                  const Spacer(
-                                    flex: 2,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          )
-                        : Row(
-                            children: <Widget>[
-                              const Spacer(),
-                              Image.asset(
-                                'assets/zeka_logo.png',
-                                scale: 8,
-                              ),
-                              const Spacer(
-                                flex: 5,
-                              ),
-                              PopupMenuButton(
-                                splashRadius: 32,
-                                tooltip: 'Göster',
-                                child: const Icon(
-                                  Icons.menu,
-                                  size: 32,
-                                ),
-                                itemBuilder: (BuildContext context) {
-                                  return [
-                                    popUpItem('Ana Sayfa', () {
-                                      setState(() {
-                                        pageIndex = 0;
-                                      });
-                                    }),
-                                    popUpExpansion('Kurumsal', () {}, [
-                                      popUpExpansionItem('Hakkımızda', () {
+                                        })
+                                      ]),
+                                      popUpItem('Bize Ulaşın', () {
                                         setState(() {
-                                          pageIndex = 1;
-                                          Navigator.pop(context);
-                                        });
-                                      })
-                                    ]),
-                                    popUpExpansion(
-                                        'Hizmet Alanlarımız', () {}, [
-                                      popUpExpansionItem(
-                                          'Dikkat Eksikliği ve\nHiperaktivite Bozukluğu',
-                                          () {
-                                        setState(() {
-                                          pageIndex = 2;
-                                          Navigator.pop(context);
-                                        });
-                                      }),
-                                      popUpExpansionItem(
-                                          'Zihinsel Yetersizlikler', () {
-                                        setState(() {
-                                          pageIndex = 3;
-                                          Navigator.pop(context);
-                                        });
-                                      }),
-                                      popUpExpansionItem(
-                                          'Dil ve Konuşma Güçlükleri', () {
-                                        setState(() {
-                                          pageIndex = 4;
-                                          Navigator.pop(context);
-                                        });
-                                      }),
-                                      popUpExpansionItem(
-                                          'Okula Destek ve Hazırlık', () {
-                                        setState(() {
-                                          pageIndex = 5;
-                                          Navigator.pop(context);
-                                        });
-                                      }),
-                                      popUpExpansionItem('Özel Öğrenme Güçlüğü',
-                                          () {
-                                        setState(() {
-                                          pageIndex = 6;
-                                          Navigator.pop(context);
-                                        });
-                                      })
-                                    ]),
-                                    popUpExpansion('Programlarımız', () {}, [
-                                      popUpExpansionItem(
-                                          'Uygulamalı Davranış Analizi (UDA) - Applied Behavioral Analysis (ABA)',
-                                          () {
-                                        setState(() {
-                                          pageIndex = 7;
-                                          Navigator.pop(context);
-                                        });
-                                      }),
-                                      popUpExpansionItem(
-                                          'Otistik Çocuklar için Davranışsal Eğitim Program: (OGIDEP)',
-                                          () {
-                                        setState(() {
-                                          pageIndex = 8;
-                                          Navigator.pop(context);
-                                        });
-                                      }),
-                                      popUpExpansionItem(
-                                          'Duyu Bütünleme Terapisi', () {
-                                        setState(() {
-                                          pageIndex = 9;
-                                          Navigator.pop(context);
-                                        });
-                                      }),
-                                      popUpExpansionItem('Oyun Terapisi', () {
-                                        setState(() {
-                                          pageIndex = 10;
-                                          Navigator.pop(context);
-                                        });
-                                      }),
-                                      popUpExpansionItem(
-                                          'Disleksi Müdahale Programı (DMP)',
-                                          () {
-                                        setState(() {
-                                          pageIndex = 11;
-                                          Navigator.pop(context);
-                                        });
-                                      }),
-                                      popUpExpansionItem(
-                                          'Disgrafya Müdahale Programı', () {
-                                        setState(() {
-                                          pageIndex = 12;
-                                          Navigator.pop(context);
-                                        });
-                                      })
-                                    ]),
-                                    popUpExpansion('Testler', () {}, [
-                                      popUpExpansionItem(
-                                          'Otizm Spektrum Bozukluğu', () {
-                                        setState(() {
-                                          pageIndex = 13;
-                                          Navigator.pop(context);
-                                        });
-                                      })
-                                    ]),
-                                    popUpItem('Bize Ulaşın', () {
-                                      setState(() {
-                                        setState(() {
-                                          pageIndex = 14;
+                                          setState(() {
+                                            pageIndex = 14;
 
-                                          Navigator.pop(context);
+                                            Navigator.pop(context);
+                                          });
                                         });
-                                      });
-                                    })
-                                  ];
-                                },
-                                onSelected: (Object? selectedNotification) {
-                                  print(
-                                      'Selected notification: ${selectedNotification}');
-                                },
-                              ),
-                              const Spacer(),
-                            ],
-                          ),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    _buildSelectedWidget(),
-                  ]),
-                )
-              ]),
+                                      })
+                                    ];
+                                  },
+                                  onSelected: (Object? selectedNotification) {
+                                    print(
+                                        'Selected notification: ${selectedNotification}');
+                                  },
+                                ),
+                                const Spacer(),
+                              ],
+                            ),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      _buildSelectedWidget(),
+                    ]),
+                  )
+                ]),
+          ),
         ),
         // const Align(
         //     alignment: Alignment.bottomLeft,
@@ -907,10 +930,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             launch('tel:+905536273410');
                           },
                           child: screenModeModerate2
-                              ? Row(
+                              ? const Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
-                                    const Padding(
+                                    Padding(
                                       padding: EdgeInsets.only(top: 6.0),
                                       child: Text(
                                         'Hemen Bizi Arayın',
@@ -920,7 +943,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                     ),
-                                    const Padding(
+                                    Padding(
                                       padding: EdgeInsets.only(top: 4.0),
                                       child: Text(
                                         ' 0 553 627 34 10',
@@ -932,10 +955,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                     )
                                   ],
                                 )
-                              : Column(
+                              : const Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
-                                    const Padding(
+                                    Padding(
                                       padding: EdgeInsets.only(top: 6.0),
                                       child: Text(
                                         'Hemen Bizi Arayın',
@@ -945,7 +968,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         ),
                                       ),
                                     ),
-                                    const Padding(
+                                    Padding(
                                       padding: EdgeInsets.only(top: 4.0),
                                       child: Text(
                                         ' 0 553 627 34 10',
@@ -1055,13 +1078,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                       padding: const EdgeInsets.all(20.0),
                                       child: Column(
                                         children: <Widget>[
-                                          Row(
+                                          const Row(
                                             children: <Widget>[
-                                              const Icon(
+                                              Icon(
                                                 Icons.phone,
                                                 color: Colors.blue,
                                               ),
-                                              const Text(
+                                              Text(
                                                 '  Bize Ulaşın',
                                                 style: TextStyle(
                                                   color: Colors.blue,
@@ -1071,14 +1094,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                               )
                                             ],
                                           ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsets.only(top: 20),
+                                          const Padding(
+                                            padding: EdgeInsets.only(top: 20),
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
                                               children: <Widget>[
-                                                const SizedBox(
+                                                SizedBox(
                                                     height: 50,
                                                     width: 230,
                                                     child: TextField(
@@ -1087,7 +1109,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                               OutlineInputBorder(),
                                                           hintText: 'Ad Soyad'),
                                                     )),
-                                                const SizedBox(
+                                                SizedBox(
                                                     height: 50,
                                                     width: 230,
                                                     child: TextField(
@@ -1097,7 +1119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                           hintText:
                                                               'E-Posta Adresi'),
                                                     )),
-                                                const SizedBox(
+                                                SizedBox(
                                                     height: 50,
                                                     width: 230,
                                                     child: TextField(
@@ -1110,14 +1132,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ],
                                             ),
                                           ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsets.only(top: 20),
+                                          const Padding(
+                                            padding: EdgeInsets.only(top: 20),
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
                                               children: <Widget>[
-                                                const Expanded(
+                                                Expanded(
                                                     child: Padding(
                                                   padding: EdgeInsets.symmetric(
                                                       horizontal: 26.0),
@@ -1132,14 +1153,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                               ],
                                             ),
                                           ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsets.only(top: 20),
+                                          const Padding(
+                                            padding: EdgeInsets.only(top: 20),
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
                                               children: <Widget>[
-                                                const Expanded(
+                                                Expanded(
                                                     child: Padding(
                                                   padding: EdgeInsets.symmetric(
                                                       horizontal: 26.0),
@@ -1411,41 +1431,117 @@ class _MyHomePageState extends State<MyHomePage> {
                           screenModeModerate),
                     ],
                   )),
-              Footer(context, screenModeModerate ? true : false)
+              Footer(context, screenModeModerate, changePage)
             ]),
           ],
         );
       case 1:
-        return AboutUs(
-          screenModeFullScreen: screenModeModerate,
+        return Column(
+          children: [
+            AboutUs(
+              screenModeFullScreen: screenModeModerate,
+            ),
+            Footer(
+              context,
+              screenModeModerate,
+              changePage,
+            )
+          ],
         );
       case 2:
-        return const LackofAttention();
+        return Column(
+          children: [
+            const LackofAttention(),
+            Footer(context, screenModeModerate, changePage)
+          ],
+        );
       case 3:
-        return const Zihinsel();
+        return Column(
+          children: [
+            const Zihinsel(),
+            Footer(context, screenModeModerate, changePage)
+          ],
+        );
       case 4:
-        return const Dil();
+        return Column(
+          children: [
+            const Dil(),
+            Footer(context, screenModeModerate, changePage)
+          ],
+        );
       case 5:
-        return const School();
+        return Column(
+          children: [
+            const School(),
+            Footer(context, screenModeModerate, changePage)
+          ],
+        );
       case 6:
-        return const Special();
+        return Column(
+          children: [
+            const Special(),
+            Footer(context, screenModeModerate, changePage)
+          ],
+        );
       case 7:
-        return const Davranis();
+        return Column(
+          children: [
+            const Davranis(),
+            Footer(context, screenModeModerate, changePage)
+          ],
+        );
       case 8:
-        return const Autism();
+        return Column(
+          children: [
+            const Autism(),
+            Footer(
+              context,
+              screenModeModerate,
+              changePage,
+            )
+          ],
+        );
       case 9:
-        return const Duyu();
+        return Column(
+          children: [
+            const Duyu(),
+            Footer(context, screenModeModerate, changePage)
+          ],
+        );
       case 10:
-        return const GameTherapy();
+        return Column(
+          children: [
+            const GameTherapy(),
+            Footer(context, screenModeModerate, changePage)
+          ],
+        );
       case 11:
-        return const Dyslexia();
+        return Column(
+          children: [
+            const Dyslexia(),
+            Footer(context, screenModeModerate, changePage)
+          ],
+        );
       case 12:
-        return const Disgrafya();
+        return Column(
+          children: [
+            const Disgrafya(),
+            Footer(context, screenModeModerate, changePage)
+          ],
+        );
       case 13:
-        return const AutismSpectrum();
+        return Column(
+          children: [
+            const AutismSpectrum(),
+            Footer(context, screenModeModerate, changePage)
+          ],
+        );
       case 14:
-        return ContactUs(
-          screenModeFullScreen: screenModeModerate,
+        return Column(
+          children: [
+            ContactUs(screenModeFullScreen: screenModeModerate),
+            Footer(context, screenModeModerate, changePage)
+          ],
         );
       default:
         return Container();
